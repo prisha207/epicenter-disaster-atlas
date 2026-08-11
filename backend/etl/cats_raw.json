@@ -1,0 +1,82 @@
+{
+  "earthquake": {
+    "label": "Earthquake",
+    "hex": "#E8735A"
+  },
+  "tsunami": {
+    "label": "Tsunami",
+    "hex": "#2FA8C9"
+  },
+  "volcano": {
+    "label": "Volcanic Eruption",
+    "hex": "#F0B23A"
+  },
+  "landslide": {
+    "label": "Landslide",
+    "hex": "#B08968"
+  },
+  "avalanche": {
+    "label": "Avalanche",
+    "hex": "#CFE3F0"
+  },
+  "sinkhole": {
+    "label": "Sinkhole",
+    "hex": "#9C87B5"
+  },
+  "tropicalCyclone": {
+    "label": "Tropical Cyclone",
+    "hex": "#9385EA"
+  },
+  "hurricane": {
+    "label": "Hurricane",
+    "hex": "#7A63D6"
+  },
+  "typhoon": {
+    "label": "Typhoon",
+    "hex": "#B06BD9"
+  },
+  "tornado": {
+    "label": "Tornado",
+    "hex": "#E0567A"
+  },
+  "severeThunderstorm": {
+    "label": "Severe Thunderstorm",
+    "hex": "#5B7FE0"
+  },
+  "blizzard": {
+    "label": "Blizzard",
+    "hex": "#A9C6E8"
+  },
+  "hailstorm": {
+    "label": "Hailstorm",
+    "hex": "#8FA6C7"
+  },
+  "icestorm": {
+    "label": "Ice Storm",
+    "hex": "#A0E0DB"
+  },
+  "duststorm": {
+    "label": "Dust Storm",
+    "hex": "#C88A4A"
+  },
+  "flood": {
+    "label": "Flood",
+    "hex": "#4F9BE0"
+  },
+  "drought": {
+    "label": "Drought",
+    "hex": "#C9A24B"
+  },
+  "wildfire": {
+    "label": "Wildfire",
+    "hex": "#F2793A"
+  },
+  "heatwave": {
+    "label": "Heatwave",
+    "hex": "#E5533D"
+  },
+  "coldwave": {
+    "label": "Cold Wave",
+    "hex": "#6FB8D9"
+  }
+}

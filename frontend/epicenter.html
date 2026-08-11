@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epicenter · Atlas of Disasters Past</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --bg: #0B1220;
+    --bg-deep: #070C16;
+    --panel: #121B2E;
+    --panel-alt: #16213A;
+    --line: #22304A;
+    --line-soft: #1A2439;
+    --ink: #E8ECF1;
+    --ink-dim: #8494AC;
+    --ink-faint: #58698A;
+
+    --earthquake: #E8735A;
+    --tsunami: #45B8CB;
+    --volcano: #F0B23A;
+    --storm: #9385EA;
+    --flood: #4F9BE0;
+    --wildfire: #F2793A;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background: radial-gradient(ellipse at 50% -10%, #101c33 0%, var(--bg) 45%, var(--bg-deep) 100%);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--earthquake); color:#0B1220; }
+
+  a{color:inherit;}
+  button{ font-family:inherit; cursor:pointer; }
+
+  .app{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    margin-bottom: 22px;
+  }
+  .waveform-wrap{
+    height: 44px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    opacity: .55;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .waveform-wrap svg{
+    display:block;
+    width: 200%;
+    height: 44px;
+    animation: scrollWave 9s linear infinite;
+  }
+  @keyframes scrollWave{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  .title-row{
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: .18em;
+    color: var(--earthquake);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display:block;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4.4vw, 42px);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  h1 span{ color: var(--ink-dim); font-weight: 500;}
+  .subhead{
+    color: var(--ink-dim);
+    font-size: 14px;
+    margin-top: 8px;
+    max-width: 46ch;
+  }
+  .log-counter{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    text-align:right;
+    white-space: nowrap;
+  }
+  .log-counter b{ color: var(--ink); font-size: 15px; }
+  .log-counter.complete b, .log-counter.complete{
+    color: var(--volcano);
+  }
+
+  /* ---------- Controls ---------- */
+  .controls{
+    display:flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0 22px;
+  }
+  .chips{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+  }
+  .chip-quick{
+    display:flex; align-items:center; gap: 8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+  .chip-quick button{
+    background:none; border:none; color: var(--ink-dim);
+    font-family: inherit; font-size: inherit;
+    text-decoration: underline; text-underline-offset: 2px;
+    padding: 0;
+  }
+  .chip-quick button:hover{ color: var(--ink); }
+  .chip-group{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap: 7px;
+  }
+  .chip-group-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing:.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    width: 100px;
+    flex-shrink: 0;
+  }
+  .chip{
+    display:flex;
+    align-items:center;
+    gap: 7px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    padding: 7px 13px 7px 10px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 500;
+    transition: border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .chip .dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--dot-color, #888);
+    flex-shrink:0;
+    box-shadow: 0 0 0 3px transparent;
+    transition: box-shadow .15s ease;
+  }
+  .chip.active{
+    color: var(--ink);
+    border-color: var(--dot-color, var(--line));
+    background: var(--panel-alt);
+  }
+  .chip.active .dot{ box-shadow: 0 0 0 3px color-mix(in srgb, var(--dot-color) 20%, transparent); }
+  .chip:hover{ color: var(--ink); }
+
+  .surprise-btn{
+    display:flex; align-items:center; gap:8px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #1a2540, #141d33);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .surprise-btn:hover{ border-color: var(--earthquake); transform: translateY(-1px); }
+  .surprise-btn:active{ transform: translateY(0); }
+
+  /* ---------- Year filter ---------- */
+  .year-filter{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 18px 10px;
+    margin-bottom: 18px;
+  }
+  .year-filter-head{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .yf-label{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .yf-range{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--volcano);
+    background: var(--panel-alt);
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .pre2000-toggle{
+    display:flex;
+    align-items:center;
+    gap: 7px;
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--ink-dim);
+    cursor: pointer;
+    user-select: none;
+  }
+  .pre2000-toggle input{
+    width: 14px; height:14px;
+    accent-color: var(--earthquake);
+    cursor: pointer;
+  }
+  .pre2000-toggle:hover{ color: var(--ink); }
+
+  .yf-sub{
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    margin: 2px 0 2px;
+  }
+  .range-slider{
+    position: relative;
+    height: 30px;
+    margin-top: 6px;
+  }
+  .range-track{
+    position:absolute; left:0; right:0; top:50%;
+    height: 4px; transform: translateY(-50%);
+    background: var(--line-soft);
+    border-radius: 2px;
+  }
+  .range-fill{
+    position:absolute; top:50%; height:4px; transform: translateY(-50%);
+    background: linear-gradient(90deg, var(--earthquake), var(--volcano));
+    border-radius: 2px;
+  }
+  .range-slider input[type="range"]{
+    position:absolute; left:0; right:0; top:50%; transform: translateY(-50%);
+    width: 100%; height: 4px;
+    margin:0; background: transparent;
+    -webkit-appearance: none; appearance: none;
+    pointer-events: none;
+  }
+  .range-slider input[type="range"]::-webkit-slider-runnable-track{
+    background: transparent; height:4px;
+  }
+  .range-slider input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    pointer-events: auto;
+    width: 17px; height:17px;
+    margin-top: 0;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 3px solid var(--earthquake);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+    position: relative;
+    z-index: 3;
+  }
+  .range-slider input[type="range"]#yearMax::-webkit-slider-thumb{ border-color: var(--volcano); }
+  .range-slider input[type="range"]::-moz-range-thumb{
+    pointer-events: auto;
+    width: 15px; height:15px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 3px solid var(--earthquake);
+    cursor: pointer;
+  }
+  .range-slider input[type="range"]#yearMax::-moz-range-thumb{ border-color: var(--volcano); }
+  .range-slider input[type="range"]::-moz-range-track{ background: transparent; height:4px; }
+
+  .range-ticks{
+    display:flex; justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    padding: 2px 2px 4px;
+  }
+
+  /* ---------- Map ---------- */
+  .map-shell{
+    position: relative;
+    background: linear-gradient(180deg, var(--panel) 0%, var(--bg-deep) 130%);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 4px;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,.6), inset 0 0 60px rgba(0,0,0,.25);
+  }
+  .map-wrap{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    border-radius: 11px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 30%, #10192d 0%, #0a1120 75%);
+  }
+  .map-wrap svg.basemap{
+    position:absolute; inset:0; width:100%; height:100%; display:block;
+  }
+
+  .pin{
+    position:absolute;
+    transform: translate(-50%, -50%);
+    width: 22px; height: 22px;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 2;
+  }
+  .pin .core{
+    position:absolute; top:50%; left:50%;
+    width: 8px; height:8px;
+    border-radius:50%;
+    background: var(--c);
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 8px 1px var(--c);
+    transition: width .15s ease, height .15s ease;
+  }
+  .pin .ring{
+    position:absolute; top:50%; left:50%;
+    width: 8px; height:8px;
+    border-radius:50%;
+    border: 1.5px solid var(--c);
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    animation: ping 2.6s cubic-bezier(.2,.6,.35,1) infinite;
+  }
+  .pin .ring.r2{ animation-delay: 1.3s; }
+  @keyframes ping{
+    0%{ width:8px; height:8px; opacity:.75; }
+    75%{ width:38px; height:38px; opacity:0; }
+    100%{ width:38px; height:38px; opacity:0; }
+  }
+  .pin:hover .core, .pin.active .core{ width:11px; height:11px; }
+  .pin.dimmed{ opacity: .12; pointer-events:none; }
+  .pin.explored .core::after{
+    content:'';
+  }
+  .pin.explored::before{
+    content:'';
+    position:absolute; top:-3px; left:-3px; right:-3px; bottom:-3px;
+    border-radius:50%;
+    border: 1px dashed rgba(255,255,255,.35);
+  }
+
+  .tooltip{
+    position:absolute;
+    pointer-events:none;
+    z-index: 5;
+    background: #0A101E;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-family:'IBM Plex Mono', monospace;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 14px));
+    transition: opacity .1s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,.4);
+  }
+  .tooltip.show{ opacity: 1; }
+  .tooltip .yr{ color: var(--ink-dim); margin-left: 6px; }
+
+  .map-caption{
+    display:flex; justify-content: space-between; flex-wrap:wrap; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    padding: 10px 6px 2px;
+  }
+
+  /* ---------- Detail panel ---------- */
+  .scrim{
+    position: fixed; inset:0; background: rgba(5,8,15,.5);
+    opacity:0; pointer-events:none; transition: opacity .25s ease;
+    z-index: 20;
+  }
+  .scrim.open{ opacity:1; pointer-events:auto; }
+
+  .panel{
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(400px, 92vw);
+    background: var(--panel);
+    border-left: 1px solid var(--line);
+    box-shadow: -30px 0 60px -20px rgba(0,0,0,.6);
+    transform: translateX(100%);
+    transition: transform .32s cubic-bezier(.2,.8,.25,1);
+    z-index: 21;
+    overflow-y: auto;
+  }
+  .panel.open{ transform: translateX(0); }
+
+  .panel-top{
+    position: sticky; top:0;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px 14px;
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap: 10px;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing:.06em; text-transform:uppercase;
+    padding: 4px 10px 4px 8px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--c) 16%, transparent);
+    color: var(--c);
+    border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  }
+  .badge::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--c); }
+  .close-btn{
+    background: var(--panel-alt);
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    width: 30px; height:30px;
+    border-radius: 50%;
+    font-size: 16px; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .close-btn:hover{ color: var(--ink); border-color: var(--earthquake); }
+
+  .panel-body{ padding: 20px; }
+  .panel-body h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 24px;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .panel-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-bottom: 18px;
+  }
+
+  .stat-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow:hidden;
+    margin-bottom: 20px;
+  }
+  .stat{
+    background: var(--panel-alt);
+    padding: 12px 14px;
+  }
+  .stat .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10px; text-transform:uppercase; letter-spacing:.08em;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+  .stat .val{
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height:1.3;
+  }
+
+  .overview{
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #C9D2E0;
+    margin-bottom: 18px;
+  }
+
+  .funfact{
+    background: linear-gradient(135deg, color-mix(in srgb, var(--c) 12%, var(--panel-alt)), var(--panel-alt));
+    border: 1px solid color-mix(in srgb, var(--c) 35%, var(--line));
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #D6DEEC;
+  }
+  .funfact .lbl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color: var(--c);
+    display:block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .panel-footer{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    padding: 14px 20px 24px;
+    border-top: 1px dashed var(--line);
+    margin-top: 6px;
+  }
+
+  .empty-panel{
+    padding: 60px 24px;
+    text-align:center;
+    color: var(--ink-dim);
+  }
+
+  footer.page-foot{
+    margin-top: 26px;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    text-align:center;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width: 720px){
+    .chip-group{ gap: 6px; }
+    .chip-group-label{ width: 100%; margin-bottom: 2px; }
+    .panel{
+      top: auto; left:0; right:0; bottom:0; width:100%;
+      max-height: 82vh;
+      border-left:none; border-top: 1px solid var(--line);
+      border-radius: 18px 18px 0 0;
+      transform: translateY(100%);
+    }
+    .panel.open{ transform: translateY(0); }
+    .controls{ flex-direction: column; align-items: flex-start; }
+    .title-row{ flex-direction:column; align-items:flex-start; }
+    .log-counter{ text-align:left; }
+  }
+
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .waveform-wrap svg{ animation: none; }
+    .ring{ animation: none; opacity:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <header>
+    <div class="waveform-wrap"><svg id="waveSvg" viewBox="0 0 2400 44" preserveAspectRatio="none"></svg></div>
+    <div class="title-row">
+      <div>
+        <span class="eyebrow">Field atlas · est. reference only</span>
+        <h1>EPICENTER <span>— disasters, mapped in time</span></h1>
+        <p class="subhead">Dozens of moments the ground, sea, sky or fire rewrote the map — from antiquity through this year. Click any marker to open its field report.</p>
+      </div>
+      <div class="log-counter" id="logCounter"><b>0</b> / 22 sites logged</div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="chips" id="chipRow"></div>
+    <button class="surprise-btn" id="surpriseBtn">🎲 Surprise me</button>
+  </div>
+
+  <div class="year-filter">
+    <div class="year-filter-head">
+      <span class="yf-label">📅 Year</span>
+      <span class="yf-range" id="yearRangeLabel">2000 – 2000</span>
+      <label class="pre2000-toggle">
+        <input type="checkbox" id="pre2000Toggle">
+        <span>also show pre-2000 classics</span>
+      </label>
+    </div>
+    <p class="yf-sub">Defaults to every logged disaster from 2000 to today — drag the handles to narrow the window, or tick the box for older history.</p>
+    <div class="range-slider">
+      <div class="range-track"></div>
+      <div class="range-fill" id="rangeFill"></div>
+      <input type="range" id="yearMin" min="2000" max="2000" value="2000" step="1">
+      <input type="range" id="yearMax" min="2000" max="2000" value="2000" step="1">
+    </div>
+    <div class="range-ticks" id="rangeTicks"></div>
+  </div>
+
+  <div class="map-shell">
+    <div class="map-wrap" id="mapWrap">
+      <svg class="basemap" id="basemap" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet"></svg>
+      <!-- pins injected here -->
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+  </div>
+  <div class="map-caption">
+    <span>PROJECTION: equirectangular (stylized) · positions approximate <span id="dataSourceNote">offline dataset</span></span>
+    <span id="visibleCount">22 events shown</span>
+  </div>
+
+  <footer class="page-foot">Historical figures are approximate and vary by source. Built for exploration, not citation.</footer>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="panel" id="panel" aria-hidden="true">
+  <div class="panel-top">
+    <span class="badge" id="panelBadge" style="--c:#888">Category</span>
+    <button class="close-btn" id="closeBtn" aria-label="Close">✕</button>
+  </div>
+  <div class="panel-body" id="panelBody"></div>
+  <div class="panel-footer" id="panelFooter"></div>
+</aside>
+
+<script>
+/* ============ DATA ============ */
+const CATS = {
+  earthquake:         { label: 'Earthquake',          hex:'#E8735A' },
+  tsunami:            { label: 'Tsunami',              hex:'#2FA8C9' },
+  volcano:            { label: 'Volcanic Eruption',    hex:'#F0B23A' },
+  landslide:          { label: 'Landslide',            hex:'#B08968' },
+  avalanche:          { label: 'Avalanche',            hex:'#CFE3F0' },
+  sinkhole:           { label: 'Sinkhole',             hex:'#9C87B5' },
+  tropicalCyclone:    { label: 'Tropical Cyclone',     hex:'#9385EA' },
+  hurricane:          { label: 'Hurricane',            hex:'#7A63D6' },
+  typhoon:            { label: 'Typhoon',              hex:'#B06BD9' },
+  tornado:            { label: 'Tornado',              hex:'#E0567A' },
+  severeThunderstorm: { label: 'Severe Thunderstorm',  hex:'#5B7FE0' },
+  blizzard:           { label: 'Blizzard',             hex:'#A9C6E8' },
+  hailstorm:          { label: 'Hailstorm',            hex:'#8FA6C7' },
+  icestorm:           { label: 'Ice Storm',             hex:'#A0E0DB' },
+  duststorm:          { label: 'Dust Storm',            hex:'#C88A4A' },
+  flood:              { label: 'Flood',                hex:'#4F9BE0' },
+  drought:            { label: 'Drought',               hex:'#C9A24B' },
+  wildfire:           { label: 'Wildfire',              hex:'#F2793A' },
+  heatwave:           { label: 'Heatwave',              hex:'#E5533D' },
+  coldwave:           { label: 'Cold Wave',             hex:'#6FB8D9' },
+};
+
+const FAMILIES = [
+  { label: 'Geologic',      keys: ['earthquake','tsunami','volcano','landslide','avalanche','sinkhole'] },
+  { label: 'Wind & Storms', keys: ['tropicalCyclone','hurricane','typhoon','tornado','severeThunderstorm','blizzard','hailstorm','icestorm','duststorm'] },
+  { label: 'Water & Fire',  keys: ['flood','drought','wildfire'] },
+  { label: 'Temperature',   keys: ['heatwave','coldwave'] },
+];
+
+const FALLBACK_DISASTERS = [
+  { id:'valdivia1960', name:'Great Chilean Earthquake', cat:'earthquake', year:1960, date:'May 22, 1960', lat:-39.5, lon:-73.1, x:297, y:360, region:'Valdivia, Chile',
+    stat1:{l:'Magnitude', v:'9.5 Mw'}, stat2:{l:'Est. lives lost', v:'1,000–6,000'},
+    overview:'The strongest earthquake ever recorded by modern instruments ruptured roughly 1,000 km of fault off south-central Chile. The shaking and the tsunami it triggered devastated the region and sent waves racing across the entire Pacific basin.',
+    fact:'The tsunami crossed the Pacific and struck Hawaii and Japan roughly 15 and 22 hours later, still causing deaths thousands of kilometers from the source.' },
+
+  { id:'indianocean2004', name:'Indian Ocean Earthquake & Tsunami', cat:'tsunami', year:2004, date:'December 26, 2004', lat:3.3, lon:95.9, x:766, y:241, region:'off Sumatra, Indonesia',
+    stat1:{l:'Magnitude', v:'9.1 Mw'}, stat2:{l:'Est. lives lost', v:'~230,000'},
+    overview:'A megathrust rupture beneath the Indian Ocean displaced a huge volume of seawater, sending tsunami waves across fourteen countries within hours. It stands among the deadliest natural disasters ever documented.',
+    fact:'The quake was powerful enough to very slightly shift the planet\u2019s mass distribution, marginally speeding up Earth\u2019s rotation.' },
+
+  { id:'tohoku2011', name:'Tōhoku Earthquake & Tsunami', cat:'tsunami', year:2011, date:'March 11, 2011', lat:38.3, lon:142.4, x:896, y:144, region:'off Honshu, Japan',
+    stat1:{l:'Magnitude', v:'9.0–9.1 Mw'}, stat2:{l:'Est. lives lost', v:'~18,500'},
+    overview:'One of the most closely instrumented disasters in history: a massive undersea rupture sent walls of water up to 40 meters high into the Tōhoku coastline and triggered a meltdown at the Fukushima Daiichi nuclear plant.',
+    fact:'The quake physically moved Japan\u2019s main island eastward by up to 2.4 meters and tilted the Earth\u2019s axis by a few centimeters.' },
+
+  { id:'krakatoa1883', name:'Eruption of Krakatoa', cat:'volcano', year:1883, date:'August 26–27, 1883', lat:-6.1, lon:105.4, x:793, y:267, region:'Sunda Strait, Indonesia',
+    stat1:{l:'VEI', v:'6'}, stat2:{l:'Est. lives lost', v:'~36,000'},
+    overview:'The island volcano collapsed in a series of explosive blasts, most of the toll coming from the tsunamis the eruption generated along nearby coastlines.',
+    fact:'The final explosion is considered one of the loudest sounds in recorded history — reportedly heard almost 3,000 miles away on Rodrigues Island.' },
+
+  { id:'sthelens1980', name:'Mount St. Helens Eruption', cat:'volcano', year:1980, date:'May 18, 1980', lat:46.2, lon:-122.2, x:161, y:122, region:'Washington, USA',
+    stat1:{l:'VEI', v:'5'}, stat2:{l:'Lives lost', v:'57'},
+    overview:'A bulging north flank gave way in the largest landslide ever recorded, uncorking a lateral blast that flattened forest for miles and sent an ash column 24 km into the sky.',
+    fact:'The eruption lowered the mountain\u2019s summit by roughly 400 meters (1,300 ft), permanently changing its shape.' },
+
+  { id:'sanfrancisco1906', name:'San Francisco Earthquake', cat:'earthquake', year:1906, date:'April 18, 1906', lat:37.75, lon:-122.4, x:160, y:145, region:'San Francisco, USA',
+    stat1:{l:'Magnitude', v:'~7.9'}, stat2:{l:'Est. lives lost', v:'~3,000'},
+    overview:'Rupture along nearly 300 miles of the San Andreas Fault shook the city violently, but it was the fires that followed — burning for days — that destroyed most of the city.',
+    fact:'The disaster pushed early seismology forward dramatically and shaped modern earthquake-resistant building codes in the US.' },
+
+  { id:'vesuvius79', name:'Eruption of Vesuvius', cat:'volcano', year:79, date:'79 CE (traditionally October)', lat:40.8, lon:14.4, x:540, y:137, region:'Pompeii & Herculaneum, Italy',
+    stat1:{l:'VEI', v:'5'}, stat2:{l:'Est. lives lost', v:'2,000–16,000'},
+    overview:'A sudden, violent eruption buried the Roman towns of Pompeii and Herculaneum under ash and pumice, preserving them in remarkable detail for nearly 1,700 years.',
+    fact:'Pyroclastic surges are estimated to have moved at over 100 mph at temperatures near 300°C — fast and hot enough to kill almost instantly.' },
+
+  { id:'haiti2010', name:'Haiti Earthquake', cat:'earthquake', year:2010, date:'January 12, 2010', lat:18.5, lon:-72.5, x:299, y:199, region:'near Port-au-Prince, Haiti',
+    stat1:{l:'Magnitude', v:'7.0 Mw'}, stat2:{l:'Est. lives lost', v:'100,000–160,000+'},
+    overview:'A shallow rupture close to the densely populated capital caused catastrophic building collapse, compounded by fragile infrastructure and a strained emergency response.',
+    fact:'Estimates of the death toll vary enormously between sources — from around 100,000 to over 300,000 — making it one of the most disputed tolls of any modern disaster.' },
+
+  { id:'tambora1815', name:'Eruption of Mount Tambora', cat:'volcano', year:1815, date:'April 1815', lat:-8.25, lon:118.0, x:828, y:273, region:'Sumbawa, Indonesia',
+    stat1:{l:'VEI', v:'7 — largest on record'}, stat2:{l:'Est. lives lost', v:'71,000–100,000+'},
+    overview:'The most powerful eruption in recorded history ejected so much ash into the stratosphere that it disrupted global climate the following year.',
+    fact:'1816 became known as the "Year Without a Summer" — crop failures from the ash-dimmed skies may have inspired Mary Shelley to write Frankenstein that gloomy season.' },
+
+  { id:'bhola1970', name:'Bhola Cyclone', cat:'tropicalCyclone', year:1970, date:'November 1970', lat:22.8, lon:90.4, x:751, y:187, region:'Ganges Delta, East Pakistan (now Bangladesh)',
+    stat1:{l:'Category', v:'3 (at landfall)'}, stat2:{l:'Est. lives lost', v:'300,000–500,000'},
+    overview:'A powerful storm surge swept over the low-lying islands of the Ganges Delta with little warning, making this the deadliest tropical cyclone ever recorded.',
+    fact:'Anger over the slow disaster response is widely seen as a factor that fueled the political movement leading to Bangladesh\u2019s independence the following year.' },
+
+  { id:'katrina2005', name:'Hurricane Katrina', cat:'hurricane', year:2005, date:'August 29, 2005', lat:29.95, lon:-90.07, x:250, y:167, region:'New Orleans, Louisiana, USA',
+    stat1:{l:'Category', v:'3 (at landfall)'}, stat2:{l:'Lives lost', v:'1,392+'},
+    overview:'Levee failures around New Orleans flooded roughly 80% of the city after the storm passed, turning a hurricane into a prolonged urban flooding catastrophe.',
+    fact:'Storm surge along the Mississippi coast reached about 8.5 meters (28 ft) — among the highest ever measured in the United States.' },
+
+  { id:'tangshan1976', name:'Tangshan Earthquake', cat:'earthquake', year:1976, date:'July 28, 1976', lat:39.6, lon:118.2, x:828, y:140, region:'Tangshan, China',
+    stat1:{l:'Magnitude', v:'~7.6'}, stat2:{l:'Est. lives lost', v:'242,000 official; est. up to 655,000'},
+    overview:'Striking a heavily industrial city in the middle of the night with virtually no warning, the quake leveled Tangshan almost entirely before residents could react.',
+    fact:'It remains one of the deadliest earthquakes of the 20th century, and occurred just weeks before the death of Mao Zedong.' },
+
+  { id:'kobe1995', name:'Great Hanshin Earthquake', cat:'earthquake', year:1995, date:'January 17, 1995', lat:34.7, lon:135.2, x:876, y:154, region:'Kobe, Japan',
+    stat1:{l:'Magnitude', v:'6.9 Mw'}, stat2:{l:'Lives lost', v:'6,434'},
+    overview:'The quake struck one of the most earthquake-prepared nations on Earth, and still exposed critical gaps — collapsed elevated highways and widespread fires among them.',
+    fact:'The disaster led to a major overhaul of Japanese seismic building codes and disaster-response planning still referenced today.' },
+
+  { id:'maule2010', name:'Maule Earthquake', cat:'earthquake', year:2010, date:'February 27, 2010', lat:-36.1, lon:-72.9, x:298, y:350, region:'Maule Region, Chile',
+    stat1:{l:'Magnitude', v:'8.8 Mw'}, stat2:{l:'Lives lost', v:'~525'},
+    overview:'One of the largest earthquakes ever recorded ruptured a long stretch of the Chile subduction zone and triggered a destructive tsunami along the coast.',
+    fact:'The shift in mass is estimated to have shortened the length of an Earth day by about 1.26 microseconds.' },
+
+  { id:'mexicocity1985', name:'Mexico City Earthquake', cat:'earthquake', year:1985, date:'September 19, 1985', lat:18.4, lon:-102.4, x:216, y:199, region:'Michoacán coast / Mexico City',
+    stat1:{l:'Magnitude', v:'8.0 Mw'}, stat2:{l:'Est. lives lost', v:'5,000–10,000+'},
+    overview:'Though the epicenter lay 350 km from the capital, the soft, ancient lakebed soil beneath Mexico City amplified the shaking dramatically, collapsing buildings far from the source.',
+    fact:'On the exact same calendar date in 2017, another damaging earthquake struck Mexico City — an eerie coincidence residents still talk about.' },
+
+  { id:'pinatubo1991', name:'Eruption of Mount Pinatubo', cat:'volcano', year:1991, date:'June 15, 1991', lat:15.13, lon:120.35, x:834, y:208, region:'Luzon, Philippines',
+    stat1:{l:'VEI', v:'6'}, stat2:{l:'Lives lost', v:'800+'},
+    overview:'The second-largest eruption of the 20th century sent ash and gas high into the stratosphere just as a typhoon moved through the region, compounding the disaster.',
+    fact:'Sulfur aerosols from the eruption cooled global average temperatures by roughly 0.5°C for the following two years.' },
+
+  { id:'sichuan2008', name:'Sichuan Earthquake', cat:'earthquake', year:2008, date:'May 12, 2008', lat:31.0, lon:103.4, x:787, y:164, region:'Sichuan Province, China',
+    stat1:{l:'Magnitude', v:'7.9 Mw'}, stat2:{l:'Est. lives lost', v:'~69,000 dead, ~18,000 missing'},
+    overview:'Rupture along the Longmenshan fault devastated mountainous Sichuan; the collapse of many school buildings prompted intense scrutiny of construction standards.',
+    fact:'More than 12,000 aftershocks were recorded in the months following the main shock.' },
+
+  { id:'lisbon1755', name:'Lisbon Earthquake & Tsunami', cat:'earthquake', year:1755, date:'November 1, 1755', lat:36.5, lon:-10.0, x:472, y:149, region:'Lisbon, Portugal',
+    stat1:{l:'Est. magnitude', v:'~8.5–9.0'}, stat2:{l:'Est. lives lost', v:'12,000–50,000'},
+    overview:'Striking on All Saints\u2019 Day while churches were full, the quake, the fires, and the tsunami that followed leveled much of Lisbon and reshaped Enlightenment-era thinking about catastrophe and providence.',
+    fact:'The resulting tsunami crossed the Atlantic Ocean, with waves reported reaching the Caribbean hours later.' },
+
+  { id:'chinaflood1931', name:'1931 China Floods', cat:'flood', year:1931, date:'Summer 1931', lat:30.6, lon:114.3, x:818, y:165, region:'Yangtze & Huai River basins, China',
+    stat1:{l:'Category', v:'Major river flooding'}, stat2:{l:'Est. lives lost', v:'1–4 million'},
+    overview:'Heavy snowmelt, relentless monsoon rain, and a string of cyclones overwhelmed the Yangtze and Huai river systems, inundating an area roughly the size of England.',
+    fact:'Despite likely being the deadliest natural disaster ever recorded, it remains comparatively little-known outside China.' },
+
+  { id:'eyjafjallajokull2010', name:'Eyjafjallajökull Eruption', cat:'volcano', year:2010, date:'April 2010', lat:63.6, lon:-19.6, x:446, y:73, region:'Iceland',
+    stat1:{l:'VEI', v:'4 (moderate)'}, stat2:{l:'Flights grounded', v:'~100,000'},
+    overview:'A modest-sized eruption produced an enormous, fine volcanic ash plume that drifted over Europe, grounding air travel across the continent for days out of caution over jet engine damage.',
+    fact:'The volcano\u2019s name became a global tongue-twister, sending news anchors everywhere scrambling for pronunciation guides.' },
+
+  { id:'nyiragongo2002', name:'Eruption of Nyiragongo', cat:'volcano', year:2002, date:'January 17, 2002', lat:-1.52, lon:29.25, x:581, y:254, region:'Goma, DR Congo',
+    stat1:{l:'Lava speed', v:'up to 60 km/h'}, stat2:{l:'Displaced', v:'~250,000'},
+    overview:'Fast-moving lava flows poured down the volcano\u2019s slopes and through the city of Goma, destroying a large portion of it and sending hundreds of thousands fleeing across the border.',
+    fact:'Nyiragongo holds one of the largest and most persistent lava lakes on Earth, simmering in its crater between eruptions.' },
+
+  { id:'ausbushfires2019', name:'Black Summer Bushfires', cat:'wildfire', year:2019, date:'2019–2020 fire season', lat:-35.3, lon:149.1, x:914, y:348, region:'New South Wales & Victoria, Australia',
+    stat1:{l:'Area burned', v:'~18.6 million hectares'}, stat2:{l:'Direct lives lost', v:'33'},
+    overview:'Record heat and drought fed months of intense, fast-moving bushfires across southeastern Australia, destroying thousands of homes and an estimated three billion animals affected.',
+    fact:'Smoke from the fires circled the entire globe and was visible from space, dimming skies as far away as South America.' },
+
+  { id:'nepal2015', name:'Gorkha (Nepal) Earthquake', cat:'earthquake', year:2015, date:'April 25, 2015', lat:28.23, lon:84.73, x:735, y:172, region:'Gorkha District, Nepal',
+    stat1:{l:'Magnitude', v:'7.8 Mw'}, stat2:{l:'Est. lives lost', v:'~8,900'},
+    overview:'A powerful shallow quake tore through central Nepal, flattening villages, damaging heritage sites in Kathmandu, and triggering deadly avalanches on Everest.',
+    fact:'Tremors were strong enough to trigger deadly avalanches on Mount Everest and are believed to have shifted parts of Kathmandu several feet closer to the epicenter.' },
+
+  { id:'maria2017', name:'Hurricane Maria', cat:'hurricane', year:2017, date:'September 20, 2017', lat:18.2, lon:-66.5, x:315, y:199, region:'Puerto Rico',
+    stat1:{l:'Category', v:'4 (at landfall)'}, stat2:{l:'Est. lives lost', v:'~2,975'},
+    overview:'The strongest storm to hit Puerto Rico in nearly 90 years knocked out the island wide power grid, with some areas left without electricity for close to a year.',
+    fact:'The official death toll was revised sharply upward months later, after researchers accounted for deaths caused by delayed medical care during the long blackout.' },
+
+  { id:'palu2018', name:'Sulawesi Earthquake & Tsunami', cat:'tsunami', year:2018, date:'September 28, 2018', lat:-0.18, lon:119.85, x:833, y:251, region:'Palu, Indonesia',
+    stat1:{l:'Magnitude', v:'7.5 Mw'}, stat2:{l:'Est. lives lost', v:'~4,340'},
+    overview:'A shallow strike-slip quake near Palu Bay triggered a local tsunami and, unusually, widespread soil liquefaction that swallowed entire neighborhoods.',
+    fact:'Some liquefaction-affected ground reportedly flowed for hundreds of meters, carrying homes with it largely intact before they were buried.' },
+
+  { id:'haiti2021', name:'Haiti Earthquake', cat:'earthquake', year:2021, date:'August 14, 2021', lat:18.4, lon:-73.5, x:296, y:205, region:'Nippes, Haiti',
+    stat1:{l:'Magnitude', v:'7.2 Mw'}, stat2:{l:'Est. lives lost', v:'~2,248'},
+    overview:'Striking the same fault system that devastated Haiti in 2010, this quake hit the country southwestern peninsula while it was still recovering from prior crises.',
+    fact:'The quake landed just weeks after the assassination of Haiti president, compounding an already severe national crisis.' },
+
+  { id:'tonga2022', name:'Hunga Tonga Eruption', cat:'volcano', year:2022, date:'January 15, 2022', lat:-20.5, lon:-175.4, x:13, y:307, region:'Tonga, South Pacific',
+    stat1:{l:'VEI', v:'~5-6 (underwater)'}, stat2:{l:'Direct lives lost', v:'~6'},
+    overview:'A submarine volcano exploded with such force it sent a tsunami across the entire Pacific and launched water vapor higher into the atmosphere than any eruption on record.',
+    fact:'The shockwave circled the Earth multiple times and was detectable on barometers worldwide, even generating a small tsunami as far away as the Caribbean.' },
+
+  { id:'turkeysyria2023', name:'Turkey-Syria Earthquake', cat:'earthquake', year:2023, date:'February 6, 2023', lat:37.2, lon:37.0, x:603, y:147, region:'Gaziantep, Turkey',
+    stat1:{l:'Magnitude', v:'7.8 Mw'}, stat2:{l:'Est. lives lost', v:'55,000-60,000+'},
+    overview:'A massive rupture near the Turkey-Syria border, followed hours later by a second major quake nearby, collapsed tens of thousands of buildings across both countries in one of the deadliest quakes of the century.',
+    fact:'Investigators later linked much of the death toll to widespread violations of building codes that had been enacted decades earlier but rarely enforced.' },
+
+  { id:'libya2023', name:'Libya Floods (Storm Daniel)', cat:'flood', year:2023, date:'September 2023', lat:32.77, lon:22.64, x:563, y:159, region:'Derna, Libya',
+    stat1:{l:'Category', v:'Dam-collapse flash flood'}, stat2:{l:'Est. lives lost', v:'4,000-11,000+'},
+    overview:'Torrential rain from Storm Daniel overwhelmed two aging dams above the coastal city of Derna; their collapse sent a wall of water through the city center in the middle of the night.',
+    fact:'Roughly a quarter of the city of Derna is estimated to have been swept away or destroyed in a matter of hours.' },
+
+  { id:'noto2024', name:'Noto Peninsula Earthquake', cat:'earthquake', year:2024, date:'January 1, 2024', lat:37.5, lon:137.25, x:881, y:146, region:'Ishikawa Prefecture, Japan',
+    stat1:{l:'Magnitude', v:'7.5 Mw'}, stat2:{l:'Est. lives lost', v:'700+ (incl. indirect)'},
+    overview:'A New Year Day quake struck the remote Noto Peninsula, triggering a tsunami warning, collapsing older wooden homes, and starting fires that burned through a historic market town.',
+    fact:'Many of the deaths were later certified as disaster-related indirect fatalities, from evacuation-center conditions and the stress of aftershocks rather than the shaking itself.' },
+
+  { id:'valencia2024', name:'Valencia Floods (DANA)', cat:'flood', year:2024, date:'October 29, 2024', lat:39.47, lon:-0.38, x:499, y:140, region:'Valencia, Spain',
+    stat1:{l:'Category', v:'Flash flood (DANA system)'}, stat2:{l:'Lives lost', v:'220+'},
+    overview:'A slow-moving low-pressure system dumped a year worth of rain on parts of eastern Spain in a matter of hours, sending flash floods through towns south of Valencia city.',
+    fact:'Many victims were caught in underground parking garages and low-lying streets as water rose faster than warnings could reach them.' },
+
+  { id:'helene2024', name:'Hurricane Helene', cat:'hurricane', year:2024, date:'September 26, 2024', lat:30.0, lon:-84.0, x:267, y:167, region:'Florida Big Bend & Southeastern USA',
+    stat1:{l:'Category', v:'4 (at landfall)'}, stat2:{l:'Lives lost', v:'230+'},
+    overview:'After making landfall in Florida, Helene remnants dumped catastrophic rainfall over the Appalachian Mountains, causing some of the worst inland flooding the region has ever recorded.',
+    fact:'Mountain towns in western North Carolina, far from any coastline, saw among the highest death tolls of the entire storm.' },
+
+  { id:'myanmar2025', name:'Myanmar Earthquake', cat:'earthquake', year:2025, date:'March 28, 2025', lat:22.0, lon:96.0, x:767, y:189, region:'Sagaing-Mandalay, Myanmar',
+    stat1:{l:'Magnitude', v:'7.7 Mw'}, stat2:{l:'Est. lives lost', v:'5,400+'},
+    overview:'A shallow strike-slip rupture along the Sagaing Fault devastated central Myanmar, collapsing high-rise construction as far away as Bangkok and becoming the deadliest earthquake of 2025.',
+    fact:'Tremors were strong enough to crack open a rooftop swimming pool and collapse an under-construction skyscraper in Bangkok, over 600 miles from the epicenter.' },
+
+  { id:'kamchatka2025', name:'Kamchatka Earthquake', cat:'earthquake', year:2025, date:'July 30, 2025', lat:52.5, lon:160.3, x:945, y:104, region:'Kamchatka Peninsula, Russia',
+    stat1:{l:'Magnitude', v:'8.8 Mw'}, stat2:{l:'Direct lives lost', v:'Low (remote region)'},
+    overview:'One of the strongest earthquakes ever instrumentally recorded struck off Russia far east coast, sending tsunami warnings around the entire Pacific Rim.',
+    fact:'It was the sixth-largest earthquake ever recorded by modern seismometers, yet caused comparatively few direct casualties thanks to the region low population density.' },
+
+  { id:'zhouqu2010', name:'Zhouqu Landslide', cat:'landslide', year:2010, date:'August 8, 2010', lat:33.7, lon:104.5, x:790, y:156, region:'Zhouqu County, Gansu, China',
+    stat1:{l:'Category', v:'Debris flow / mudslide'}, stat2:{l:'Est. lives lost', v:'~1,500'},
+    overview:'Torrential rain sent a wall of mud, rock, and water down a narrow valley and straight through the county seat while most residents were asleep, burying a large part of the town in minutes.',
+    fact:'The debris flow was made worse by loose soil left over from a major 2008 earthquake in the same mountain region, which had destabilized the slopes above the town.' },
+
+  { id:'yungay1970', name:'Huascarán Avalanche (Yungay Tragedy)', cat:'avalanche', year:1970, date:'May 31, 1970', lat:-9.07, lon:-77.6, x:284, y:275, region:'Yungay, Peru',
+    stat1:{l:'Category', v:'Rock & ice avalanche'}, stat2:{l:'Est. lives lost', v:'~20,000'},
+    overview:'A large earthquake off the Peruvian coast shook loose a slab of glacial ice and rock high on Huascarán mountain; it grew into a roaring avalanche that buried the entire town of Yungay beneath it.',
+    fact:'A small group of residents survived by sprinting to high ground in a cemetery on a hill overlooking town — one of the only landmarks left visible afterward.' },
+
+  { id:'guatemala2010', name:'Guatemala City Sinkhole', cat:'sinkhole', year:2010, date:'May 30, 2010', lat:14.63, lon:-90.51, x:249, y:209, region:'Guatemala City, Guatemala',
+    stat1:{l:'Depth', v:'~90 m (300 ft)'}, stat2:{l:'Lives lost', v:'3'},
+    overview:'Heavy rain from a tropical storm combined with a ruptured underground pipe to dissolve the soft volcanic soil beneath a factory, opening a near-perfectly cylindrical pit that swallowed the building whole.',
+    fact:'The hole was so geometrically clean that photos of it circulated worldwide, with many viewers assuming the image had been digitally altered.' },
+
+  { id:'haiyan2013', name:'Typhoon Haiyan (Yolanda)', cat:'typhoon', year:2013, date:'November 8, 2013', lat:11.24, lon:125.0, x:847, y:219, region:'Tacloban, Philippines',
+    stat1:{l:'Peak winds', v:'~315 km/h (195 mph)'}, stat2:{l:'Est. lives lost', v:'~6,300+'},
+    overview:'One of the strongest tropical cyclones ever to make landfall drove a storm surge several meters high into the coastal city of Tacloban, flattening entire neighborhoods within hours.',
+    fact:'Its sustained winds were strong enough that meteorologists debated whether existing intensity scales could even adequately classify the storm.' },
+
+  { id:'joplin2011', name:'Joplin Tornado', cat:'tornado', year:2011, date:'May 22, 2011', lat:37.08, lon:-94.51, x:238, y:147, region:'Joplin, Missouri, USA',
+    stat1:{l:'Rating', v:'EF5'}, stat2:{l:'Lives lost', v:'158'},
+    overview:'A mile-wide tornado cut a direct path through the middle of Joplin, destroying roughly a third of the city — including a hospital — in under 40 minutes.',
+    fact:'It remains the single deadliest tornado in the US since official record-keeping began in 1950.' },
+
+  { id:'derecho2020', name:'Midwest Derecho', cat:'severeThunderstorm', year:2020, date:'August 10, 2020', lat:41.6, lon:-93.6, x:240, y:134, region:'Iowa, USA',
+    stat1:{l:'Peak winds', v:'~225 km/h (140 mph)'}, stat2:{l:'Lives lost', v:'4'},
+    overview:'A single fast-moving line of severe thunderstorms tore across the Midwest for over 1,000 km, flattening millions of acres of corn and soybean crops in what became one of the costliest thunderstorm events in US history.',
+    fact:'A derecho packs winds comparable to a hurricane, but delivers them along a straight-line path rather than a spinning vortex.' },
+
+  { id:'blizzard1888', name:'Great Blizzard of 1888', cat:'blizzard', year:1888, date:'March 11–14, 1888', lat:40.7, lon:-74.0, x:294, y:137, region:'Northeastern United States',
+    stat1:{l:'Snowfall', v:'up to 1.3 m (50 in)'}, stat2:{l:'Est. lives lost', v:'400–800'},
+    overview:'An unexpected late-winter storm buried the US Northeast under massive snowdrifts, stranding trains, cutting off telegraph lines, and trapping New Yorkers indoors for days.',
+    fact:'The chaos it caused is credited with helping push New York City to move its telegraph and power lines underground, and to eventually build its subway system.' },
+
+  { id:'sydneyhail1999', name:'Sydney Hailstorm', cat:'hailstorm', year:1999, date:'April 14, 1999', lat:-33.87, lon:151.21, x:920, y:344, region:'Sydney, Australia',
+    stat1:{l:'Hail size', v:'up to 9 cm'}, stat2:{l:'Lives lost', v:'1'},
+    overview:'A supercell thunderstorm dumped enormous hailstones across eastern Sydney, damaging tens of thousands of homes, cars, and aircraft in what became the costliest natural disaster in Australian history at the time.',
+    fact:'Insurers processed more than 1.7 million individual claims from this single afternoon storm.' },
+
+  { id:'icestorm1998', name:'North American Ice Storm', cat:'icestorm', year:1998, date:'January 4–10, 1998', lat:45.5, lon:-73.6, x:296, y:124, region:'Quebec & Ontario, Canada; New England, USA',
+    stat1:{l:'Ice accretion', v:'up to 10 cm'}, stat2:{l:'Lives lost', v:'~35'},
+    overview:'Days of freezing rain coated power lines and trees in thick ice, collapsing thousands of transmission towers and leaving millions without electricity in the middle of a Canadian winter.',
+    fact:'Some rural areas of Quebec went without power for over a month, in what remains the province\u2019s largest peacetime deployment of the military.' },
+
+  { id:'blacksunday1935', name:'Black Sunday Dust Storm', cat:'duststorm', year:1935, date:'April 14, 1935', lat:36.0, lon:-101.0, x:219, y:150, region:'Texas & Oklahoma Panhandles, USA',
+    stat1:{l:'Category', v:'Dust Bowl storm'}, stat2:{l:'Regional impact', v:'Millions of tons of topsoil lost'},
+    overview:'The worst single storm of the Dust Bowl era rolled across the southern Plains as a mile-high black wall of dust, turning day to night and burying farms already devastated by years of drought.',
+    fact:'The term "Dust Bowl" was reportedly coined by a journalist describing this exact storm as it swept over him.' },
+
+  { id:'eafrica2011', name:'East Africa Drought & Famine', cat:'drought', year:2011, date:'2010–2011', lat:2.0, lon:45.3, region:'Somalia & the Horn of Africa', x:626, y:244,
+    stat1:{l:'Category', v:'Severe multi-season drought'}, stat2:{l:'Est. lives lost', v:'~260,000'},
+    overview:'Two consecutive failed rainy seasons collapsed crops and livestock across the Horn of Africa, tipping the region into a famine that the UN formally declared in parts of Somalia.',
+    fact:'More than half of the estimated deaths were children under five, making it one of the deadliest famines of the 21st century so far.' },
+
+  { id:'euheat2003', name:'European Heatwave', cat:'heatwave', year:2003, date:'Summer 2003', lat:48.85, lon:2.35, x:507, y:114, region:'France & Western Europe',
+    stat1:{l:'Peak temps', v:'40°C+ (104°F+)'}, stat2:{l:'Est. lives lost', v:'~70,000 across Europe'},
+    overview:'Weeks of record-breaking heat overwhelmed hospitals and homes across a continent unused to such extremes, with France alone recording tens of thousands of heat-related deaths.',
+    fact:'The disaster prompted France to build a national heatwave early-warning system and a registry to check on isolated elderly residents during future heat events.' },
+
+  { id:'uri2021', name:'Winter Storm Uri', cat:'coldwave', year:2021, date:'February 13–17, 2021', lat:30.27, lon:-97.74, x:229, y:166, region:'Texas, USA',
+    stat1:{l:'Category', v:'Extreme cold snap'}, stat2:{l:'Est. lives lost', v:'246+ (some estimates higher)'},
+    overview:'An unprecedented cold snap froze natural gas infrastructure and overwhelmed the Texas power grid, leaving millions without electricity or heat for days during sub-zero temperatures.',
+    fact:'Some Texans saw electricity bills spike into the thousands of dollars after the storm exposed gaps in the state\u2019s deregulated energy market.' },
+
+  /* ---- EARTHQUAKE (more) ---- */
+  { id:'shaanxi1556', name:'Shaanxi Earthquake', cat:'earthquake', year:1556, date:'January 23, 1556', lat:34.5, lon:109.7, x:805, y:154, region:'Huaxian, Shaanxi, China',
+    stat1:{l:'Est. magnitude', v:'~8.0'}, stat2:{l:'Est. lives lost', v:'~830,000'},
+    overview:'Widely considered the deadliest earthquake ever recorded, the shaking collapsed loess cave dwellings across a densely populated region, burying entire communities where people lived.',
+    fact:'Many victims lived in cave-like dwellings carved into soft loess cliffs, which are especially prone to sudden collapse during shaking.' },
+
+  { id:'kanto1923', name:'Great Kantō Earthquake', cat:'earthquake', year:1923, date:'September 1, 1923', lat:35.3, lon:139.5, x:888, y:152, region:'Tokyo & Yokohama, Japan',
+    stat1:{l:'Magnitude', v:'7.9 Mw'}, stat2:{l:'Est. lives lost', v:'105,000–142,000'},
+    overview:'The quake struck around lunchtime when many cooking fires were burning, and the resulting firestorms across Tokyo and Yokohama caused far more destruction than the shaking itself.',
+    fact:'A single firestorm in an open field where tens of thousands had taken shelter is believed to have killed nearly 38,000 people in a matter of hours.' },
+
+  { id:'izmit1999', name:'İzmit Earthquake', cat:'earthquake', year:1999, date:'August 17, 1999', lat:40.7, lon:29.9, x:583, y:137, region:'Kocaeli Province, Turkey',
+    stat1:{l:'Magnitude', v:'7.6 Mw'}, stat2:{l:'Est. lives lost', v:'17,000–45,000'},
+    overview:'Poorly enforced building codes across the densely populated Kocaeli region turned a strong but not extraordinary quake into a mass-casualty event.',
+    fact:'The disaster spurred major reforms to Turkish building regulations and earthquake insurance — reforms whose limits were tragically exposed again in 2023.' },
+
+  { id:'chichi1999', name:'Chi-Chi Earthquake', cat:'earthquake', year:1999, date:'September 21, 1999', lat:23.85, lon:120.8, x:836, y:184, region:'Nantou County, Taiwan',
+    stat1:{l:'Magnitude', v:'7.6–7.7 Mw'}, stat2:{l:'Lives lost', v:'~2,400'},
+    overview:'Rupture along the Chelungpu fault thrust the ground upward by several meters in places, visibly warping roads and a school running track that\u2019s now preserved as a memorial.',
+    fact:'The fault scarp raised a riverbed near Shigang so abruptly that it created an instant waterfall over 6 meters high.' },
+
+  { id:'morocco2023', name:'Al Haouz (Morocco) Earthquake', cat:'earthquake', year:2023, date:'September 8, 2023', lat:31.1, lon:-8.4, x:477, y:164, region:'High Atlas Mountains, Morocco',
+    stat1:{l:'Magnitude', v:'6.8 Mw'}, stat2:{l:'Lives lost', v:'2,900+'},
+    overview:'A relatively moderate quake caused outsized destruction in remote Atlas Mountain villages built largely of stone and mud brick, hampering rescue efforts for days.',
+    fact:'It was the strongest earthquake recorded in Morocco in over a century.' },
+
+  /* ---- TSUNAMI (more) ---- */
+  { id:'lituya1958', name:'Lituya Bay Megatsunami', cat:'tsunami', year:1958, date:'July 9, 1958', lat:58.6, lon:-137.6, x:118, y:87, region:'Lituya Bay, Alaska, USA',
+    stat1:{l:'Max wave height', v:'~524 m (1,720 ft)'}, stat2:{l:'Lives lost', v:'5'},
+    overview:'An earthquake shook loose a massive rockslide into a narrow fjord, displacing water into the tallest wave ever reliably documented and stripping trees off surrounding slopes hundreds of meters up.',
+    fact:'Two fishing boats anchored in the bay were literally carried over a forested spit by the wave — one survived the ride.' },
+
+  { id:'aleutian1946', name:'Aleutian Islands Tsunami', cat:'tsunami', year:1946, date:'April 1, 1946', lat:19.7, lon:-155.1, x:69, y:195, region:'Hilo, Hawaii, USA',
+    stat1:{l:'Wave height', v:'up to ~14 m at Hilo'}, stat2:{l:'Est. lives lost', v:'165–173'},
+    overview:'A tsunami generated near Alaska crossed the open Pacific and slammed into Hilo, Hawaii, with no warning system in place to alert residents.',
+    fact:'This disaster directly led to the creation of the Pacific Tsunami Warning System, still in operation today.' },
+
+  { id:'okushiri1993', name:'Hokkaidō Nansei-oki Tsunami', cat:'tsunami', year:1993, date:'July 12, 1993', lat:42.2, lon:139.4, x:887, y:133, region:'Okushiri Island, Japan',
+    stat1:{l:'Magnitude', v:'7.8 Mw'}, stat2:{l:'Lives lost', v:'~230'},
+    overview:'The tsunami reached Okushiri Island in as little as two to five minutes, leaving almost no time to evacuate before waves over 30 meters high struck in places.',
+    fact:'The extremely short warning time from this event pushed Japan to dramatically speed up its tsunami alert systems.' },
+
+  { id:'anakkrakatau2018', name:'Anak Krakatau Tsunami', cat:'tsunami', year:2018, date:'December 22, 2018', lat:-6.1, lon:105.4, x:798, y:272, region:'Sunda Strait, Indonesia',
+    stat1:{l:'Cause', v:'Volcanic flank collapse'}, stat2:{l:'Lives lost', v:'~430'},
+    overview:'Part of the young volcanic island Anak Krakatau — grown from the caldera left by the 1883 eruption — suddenly collapsed into the sea, sending an unannounced tsunami into nearby coastlines at night.',
+    fact:'Because the trigger was a landslide rather than an earthquake, existing tsunami warning systems didn\u2019t detect it in time.' },
+
+  /* ---- VOLCANIC ERUPTION (more, including repeat eruptions of the same volcanoes) ---- */
+  { id:'ruiz1985', name:'Nevado del Ruiz Eruption', cat:'volcano', year:1985, date:'November 13, 1985', lat:4.9, lon:-75.32, x:291, y:236, region:'Armero, Colombia',
+    stat1:{l:'VEI', v:'3 (small eruption)'}, stat2:{l:'Est. lives lost', v:'~23,000–25,000'},
+    overview:'A modest eruption melted glacial ice atop the volcano, sending massive mudflows down river valleys that buried the town of Armero while most residents slept.',
+    fact:'Scientists had warned of the lahar risk weeks earlier, making it one of history\u2019s starkest examples of a preventable volcanic disaster.' },
+
+  { id:'kilauea1790', name:'Kīlauea Eruption (1790)', cat:'volcano', year:1790, date:'c. November 1790', lat:19.4, lon:-155.3, x:69, y:196, region:'Kīlauea, Hawaii, USA',
+    stat1:{l:'Type', v:'Phreatic (steam) explosion'}, stat2:{l:'Est. lives lost', v:'~400–5,400'},
+    overview:'A sudden explosive burst caught part of a Hawaiian army crossing the volcano\u2019s summit, remaining the deadliest volcanic event in what is now United States territory.',
+    fact:'Footprints preserved in the hardened ash — thought to belong to some of the victims — can still be seen near the site today.' },
+
+  { id:'kilauea2018', name:'Kīlauea Eruption (2018)', cat:'volcano', year:2018, date:'May–August 2018', lat:19.46, lon:-154.9, x:72, y:199, region:'Leilani Estates, Hawaii, USA',
+    stat1:{l:'Type', v:'Rift zone lava eruption'}, stat2:{l:'Homes destroyed', v:'700+'},
+    overview:'Months of slow-moving lava fountains and flows from Kīlauea\u2019s lower East Rift Zone consumed entire neighborhoods, though careful evacuation meant no direct deaths.',
+    fact:'The eruption also created a new black-sand beach where lava met the ocean.' },
+
+  { id:'etna1669', name:'Mount Etna Eruption (1669)', cat:'volcano', year:1669, date:'March–July 1669', lat:37.75, lon:15.0, x:542, y:145, region:'Catania, Sicily, Italy',
+    stat1:{l:'Duration', v:'~4 months'}, stat2:{l:'Homes destroyed', v:'Much of Catania'},
+    overview:'A lava flow advanced for weeks, eventually breaching Catania\u2019s city walls; because it moved slowly, most residents were able to flee, keeping direct deaths comparatively low.',
+    fact:'Some Catanians reportedly tried to divert the flow by digging channels — one of the earliest recorded attempts at deliberate lava diversion.' },
+
+  { id:'etna1992', name:'Mount Etna Eruption (1992)', cat:'volcano', year:1992, date:'December 1991 – April 1992', lat:37.75, lon:15.02, x:546, y:148, region:'Zafferana Etnea, Sicily, Italy',
+    stat1:{l:'Type', v:'Effusive lava flow'}, stat2:{l:'Lives lost', v:'0'},
+    overview:'As lava threatened the town of Zafferana, engineers used explosives and concrete barriers to redirect the flow away from homes — one of the first large-scale attempts to actively steer an eruption.',
+    fact:'The intervention is still studied as a case study in volcanic-hazard mitigation.' },
+
+  { id:'unzen1991', name:'Mount Unzen Eruption', cat:'volcano', year:1991, date:'June 3, 1991', lat:32.75, lon:130.3, x:862, y:159, region:'Nagasaki Prefecture, Japan',
+    stat1:{l:'Type', v:'Pyroclastic flow'}, stat2:{l:'Lives lost', v:'43'},
+    overview:'A sudden pyroclastic flow overran a group of journalists, evacuees, and volcanologists — including renowned scientists Katia and Maurice Krafft — who were observing from what they believed was a safe distance.',
+    fact:'The Kraffts\u2019 dramatic footage of eruptions worldwide, filmed over decades, is still used in volcanology education today.' },
+
+  { id:'merapi2010', name:'Mount Merapi Eruption', cat:'volcano', year:2010, date:'October–November 2010', lat:-7.54, lon:110.44, x:807, y:271, region:'Yogyakarta, Indonesia',
+    stat1:{l:'VEI', v:'4'}, stat2:{l:'Lives lost', v:'350+'},
+    overview:'One of the world\u2019s most active volcanoes produced its largest eruption in over a century, forcing the evacuation of hundreds of thousands from its slopes.',
+    fact:'An elderly caretaker known as the mountain\u2019s spiritual gatekeeper refused to leave and died in the eruption, becoming a symbol of the disaster.' },
+
+  { id:'fuego2018', name:'Fuego Eruption', cat:'volcano', year:2018, date:'June 3, 2018', lat:14.47, lon:-90.88, x:248, y:210, region:'Escuintla, Guatemala',
+    stat1:{l:'Type', v:'Pyroclastic flow'}, stat2:{l:'Est. lives lost', v:'200+ (many missing)'},
+    overview:'Fast-moving pyroclastic flows raced down river channels and buried villages with almost no warning, one of the deadliest eruptions in Guatemala\u2019s history.',
+    fact:'Some communities were buried so deeply and suddenly that authorities later declared the site a mass grave rather than attempting full excavation.' },
+
+  { id:'ontake2014', name:'Mount Ontake Eruption', cat:'volcano', year:2014, date:'September 27, 2014', lat:35.89, lon:137.48, x:882, y:150, region:'Nagano/Gifu, Japan',
+    stat1:{l:'Type', v:'Sudden phreatic eruption'}, stat2:{l:'Lives lost', v:'63'},
+    overview:'A popular hiking peak erupted without the usual warning signs on a busy autumn weekend, catching climbers at the summit completely by surprise.',
+    fact:'It remains Japan\u2019s deadliest volcanic disaster since 1926, and prompted new hiker-alert systems on active volcanoes nationwide.' },
+
+  { id:'soufriere2021', name:'La Soufrière Eruption', cat:'volcano', year:2021, date:'April 2021', lat:13.33, lon:-61.18, x:330, y:213, region:'Saint Vincent, Caribbean',
+    stat1:{l:'VEI', v:'4'}, stat2:{l:'Lives lost', v:'0 reported'},
+    overview:'A series of explosive eruptions forced the evacuation of roughly 20,000 people from the northern part of the island, coordinated across a region already stretched thin by the pandemic.',
+    fact:'Ashfall was heavy enough to be detected by satellites drifting hundreds of kilometers across the Caribbean.' },
+
+  { id:'galunggung1982', name:'Galunggung Eruption', cat:'volcano', year:1982, date:'1982–1983', lat:-7.25, lon:108.05, x:800, y:270, region:'West Java, Indonesia',
+    stat1:{l:'VEI', v:'3–4'}, stat2:{l:'Lives lost', v:'~68'},
+    overview:'A months-long eruption sent ash plumes across busy flight paths over Indonesia, with dramatic consequences for aircraft passing through unseen.',
+    fact:'A British Airways 747 accidentally flew through the ash cloud and lost power in all four engines; the crew managed to restart them and land safely, and the incident reshaped global volcanic-ash flight safety rules.' },
+
+  /* ---- LANDSLIDE (more) ---- */
+  { id:'vajont1963', name:'Vajont Dam Landslide', cat:'landslide', year:1963, date:'October 9, 1963', lat:46.27, lon:12.33, x:534, y:122, region:'Vajont, Italy',
+    stat1:{l:'Type', v:'Rockslide into reservoir'}, stat2:{l:'Lives lost', v:'~2,000'},
+    overview:'A mountainside slid into a newly filled reservoir, displacing a wave that overtopped the dam by hundreds of feet and wiped out villages downstream — the dam itself barely moved.',
+    fact:'Geologists had flagged the slope\u2019s instability before the reservoir was even filled, making this another textbook case of an ignored warning.' },
+
+  { id:'guinsaugon2006', name:'Guinsaugon Landslide', cat:'landslide', year:2006, date:'February 17, 2006', lat:10.35, lon:125.13, x:848, y:221, region:'Southern Leyte, Philippines',
+    stat1:{l:'Trigger', v:'Heavy rainfall'}, stat2:{l:'Est. lives lost', v:'~1,100'},
+    overview:'Days of rain saturated a hillside above the village of Guinsaugon, which collapsed and buried the community — including an elementary school full of students — in minutes.',
+    fact:'Rescue efforts were hampered by the sheer depth of mud and debris, some of it dozens of meters thick.' },
+
+  { id:'oso2014', name:'Oso Mudslide', cat:'landslide', year:2014, date:'March 22, 2014', lat:48.27, lon:-121.84, x:162, y:116, region:'Snohomish County, Washington, USA',
+    stat1:{l:'Trigger', v:'Saturated hillside'}, stat2:{l:'Lives lost', v:'43'},
+    overview:'A rain-saturated hillside collapsed suddenly onto a rural neighborhood along the Stillaguamish River, one of the deadliest landslides in US history.',
+    fact:'The slope had a documented history of smaller slides going back decades before the catastrophic 2014 collapse.' },
+
+  { id:'freetown2017', name:'Freetown Mudslide', cat:'landslide', year:2017, date:'August 14, 2017', lat:8.46, lon:-13.23, x:463, y:227, region:'Regent, Sierra Leone',
+    stat1:{l:'Trigger', v:'Torrential rain'}, stat2:{l:'Est. lives lost', v:'~1,100'},
+    overview:'Deforestation on the slopes above Freetown left hillsides unstable, and after unusually intense rain a mudslide swept through informal settlements at the base of Sugar Loaf Mountain.',
+    fact:'Much of the disaster response relied on volunteers digging by hand, as the country had few heavy machines available for the terrain.' },
+
+  /* ---- AVALANCHE (more) ---- */
+  { id:'whitefriday1916', name:'White Friday Avalanches', cat:'avalanche', year:1916, date:'December 13, 1916', lat:46.5, lon:11.8, x:533, y:121, region:'Dolomites, Italian–Austrian Front',
+    stat1:{l:'Context', v:'World War I front line'}, stat2:{l:'Est. lives lost', v:'~10,000'},
+    overview:'Heavy snowfall combined with artillery fire triggered avalanches across the Alpine front in a single day, burying soldiers from both sides in their mountain positions.',
+    fact:'Historians estimate more soldiers died in Alpine avalanches during the war than in some of its individual battles.' },
+
+  { id:'huascaran1962', name:'Huascarán Avalanche (1962)', cat:'avalanche', year:1962, date:'January 10, 1962', lat:-9.12, lon:-77.6, x:284, y:275, region:'Ranrahirca, Peru',
+    stat1:{l:'Type', v:'Ice & debris avalanche'}, stat2:{l:'Est. lives lost', v:'~4,000–5,000'},
+    overview:'A chunk of glacial ice broke free from the same peak that would unleash an even larger disaster eight years later, burying the town of Ranrahirca below.',
+    fact:'Huascarán is Peru\u2019s tallest mountain, and this event was an eerie preview of the far deadlier 1970 collapse from the same slope.' },
+
+  { id:'galtur1999', name:'Galtür Avalanche', cat:'avalanche', year:1999, date:'February 23, 1999', lat:46.97, lon:10.18, x:528, y:120, region:'Galtür, Austria',
+    stat1:{l:'Type', v:'Powder avalanche'}, stat2:{l:'Lives lost', v:'31'},
+    overview:'A massive avalanche struck the alpine village of Galtür directly, an area long considered safe from major slides, trapping the town under snow drifts many meters deep.',
+    fact:'The disaster led Austria to overhaul its avalanche-hazard mapping for villages once assumed to be out of reach.' },
+
+  { id:'everestavalanche2015', name:'Everest Base Camp Avalanche', cat:'avalanche', year:2015, date:'April 25, 2015', lat:28.0, lon:86.85, x:741, y:172, region:'Mount Everest, Nepal',
+    stat1:{l:'Trigger', v:'Gorkha earthquake'}, stat2:{l:'Lives lost', v:'19'},
+    overview:'The same earthquake that devastated Kathmandu shook loose an avalanche that swept through Everest Base Camp during the peak spring climbing season.',
+    fact:'It became the deadliest single day in Mount Everest\u2019s climbing history at the time.' },
+
+  /* ---- SINKHOLE (more) ---- */
+  { id:'winterpark1981', name:'Winter Park Sinkhole', cat:'sinkhole', year:1981, date:'May 1981', lat:28.6, lon:-81.35, x:274, y:171, region:'Winter Park, Florida, USA',
+    stat1:{l:'Diameter', v:'~100 m'}, stat2:{l:'Lives lost', v:'0'},
+    overview:'Over a couple of days, a sinkhole opened and gradually swallowed a house, several cars, part of a municipal pool, and a chunk of a road, growing before onlookers\u2019 eyes.',
+    fact:'Rather than being filled in, the sinkhole was left to become a small lake and remains a local landmark today.' },
+
+  { id:'guatemala2007', name:'Guatemala City Sinkhole (2007)', cat:'sinkhole', year:2007, date:'February 2007', lat:14.63, lon:-90.51, x:249, y:206, region:'Guatemala City, Guatemala',
+    stat1:{l:'Depth', v:'~100 m'}, stat2:{l:'Lives lost', v:'~3'},
+    overview:'A sudden collapse swallowed several homes in a residential neighborhood; investigators traced the cause to a leaking sewage pipe eroding the city\u2019s soft volcanic bedrock from below.',
+    fact:'The same neighborhood would be struck by an even more dramatic repeat sinkhole just three years later, in 2010.' },
+
+  { id:'daisetta2008', name:'Daisetta Sinkhole', cat:'sinkhole', year:2008, date:'May 2008', lat:30.11, lon:-94.65, x:237, y:166, region:'Daisetta, Texas, USA',
+    stat1:{l:'Cause', v:'Collapsed salt dome cavern'}, stat2:{l:'Lives lost', v:'0'},
+    overview:'A cavity deep within an underground salt dome gave way, and the ground above rapidly collapsed, swallowing vehicles and oil-field equipment within hours.',
+    fact:'The sinkhole grew large enough to be clearly visible in satellite imagery within a single day.' },
+
+  { id:'bayoucorne2012', name:'Bayou Corne Sinkhole', cat:'sinkhole', year:2012, date:'August 2012', lat:30.02, lon:-91.13, x:247, y:167, region:'Bayou Corne, Louisiana, USA',
+    stat1:{l:'Cause', v:'Collapsed salt cavern'}, stat2:{l:'Homes evacuated', v:'~350 residents'},
+    overview:'An underground salt cavern used for industrial storage collapsed, and the resulting sinkhole steadily grew for years, forcing the permanent evacuation of an entire community.',
+    fact:'The sinkhole is still monitored today and has swallowed cypress trees whole, some of which now float upright on its surface.' },
+
+  /* ---- TROPICAL CYCLONE (more) ---- */
+  { id:'bangladesh1991', name:'1991 Bangladesh Cyclone', cat:'tropicalCyclone', year:1991, date:'April 29, 1991', lat:22.3, lon:91.8, x:755, y:188, region:'Chittagong, Bangladesh',
+    stat1:{l:'Category', v:'4 (at landfall)'}, stat2:{l:'Est. lives lost', v:'~138,000'},
+    overview:'Striking nearly the same coastline devastated by the 1970 Bhola Cyclone, this storm showed how much progress had — and hadn\u2019t — been made in coastal early-warning systems.',
+    fact:'Despite the high toll, improved shelters and warnings are credited with saving hundreds of thousands compared to 1970.' },
+
+  { id:'nargis2008', name:'Cyclone Nargis', cat:'tropicalCyclone', year:2008, date:'May 2, 2008', lat:16.1, lon:94.8, x:763, y:205, region:'Irrawaddy Delta, Myanmar',
+    stat1:{l:'Category', v:'3–4 (at landfall)'}, stat2:{l:'Est. lives lost', v:'~138,000'},
+    overview:'A storm surge swept far inland across the low-lying, densely farmed Irrawaddy Delta, and the ruling government\u2019s initial reluctance to allow foreign aid delayed relief efforts for weeks.',
+    fact:'It remains the deadliest natural disaster in Myanmar\u2019s recorded history.' },
+
+  { id:'idai2019', name:'Cyclone Idai', cat:'tropicalCyclone', year:2019, date:'March 2019', lat:-19.8, lon:34.85, x:597, y:305, region:'Beira, Mozambique',
+    stat1:{l:'Category', v:'3 (at landfall)'}, stat2:{l:'Est. lives lost', v:'~1,300'},
+    overview:'One of the most destructive cyclones ever to strike southeastern Africa, Idai flooded huge swaths of Mozambique, Zimbabwe, and Malawi, turning entire towns into temporary lakes.',
+    fact:'Satellite images afterward showed an inland "sea" roughly the size of Luxembourg where the storm had flooded the delta.' },
+
+  { id:'amphan2020', name:'Cyclone Amphan', cat:'tropicalCyclone', year:2020, date:'May 2020', lat:21.6, lon:88.4, x:746, y:190, region:'West Bengal, India & Bangladesh',
+    stat1:{l:'Category', v:'2–3 (at landfall)'}, stat2:{l:'Lives lost', v:'~128'},
+    overview:'Amphan became the costliest cyclone ever recorded in the North Indian Ocean, striking during the early COVID-19 pandemic and complicating both evacuation and relief efforts.',
+    fact:'It rapidly intensified into a super cyclone over the Bay of Bengal, one of the fastest such intensifications on record for the region.' },
+
+  /* ---- TORNADO (more) ---- */
+  { id:'tristate1925', name:'Tri-State Tornado', cat:'tornado', year:1925, date:'March 18, 1925', lat:37.9, lon:-89.6, x:251, y:145, region:'Missouri, Illinois & Indiana, USA',
+    stat1:{l:'Track length', v:'~352 km (219 mi)'}, stat2:{l:'Lives lost', v:'~695'},
+    overview:'The deadliest single tornado in US history stayed on the ground for over three and a half hours, cutting a continuous path through three states with almost no modern warning systems to alert residents.',
+    fact:'Its forward speed reached an estimated 117 km/h (73 mph) at times — unusually fast for a tornado.' },
+
+  { id:'daulatpur1989', name:'Daulatpur–Saturia Tornado', cat:'tornado', year:1989, date:'April 26, 1989', lat:23.9, lon:90.0, x:750, y:184, region:'Manikganj District, Bangladesh',
+    stat1:{l:'Category', v:'Est. F3–F4'}, stat2:{l:'Est. lives lost', v:'~1,300'},
+    overview:'The deadliest tornado ever recorded worldwide tore through densely populated villages built largely of light materials, which offered almost no protection.',
+    fact:'Bangladesh\u2019s combination of dense population and flimsy housing makes it uniquely vulnerable to tornado casualties despite tornadoes there being less frequent than in the US.' },
+
+  { id:'superoutbreak2011', name:'2011 Super Outbreak', cat:'tornado', year:2011, date:'April 25–28, 2011', lat:33.2, lon:-87.55, x:257, y:158, region:'Tuscaloosa–Birmingham, Alabama, USA',
+    stat1:{l:'Tornadoes', v:'360+ over four days'}, stat2:{l:'Est. lives lost', v:'~324'},
+    overview:'The largest tornado outbreak ever recorded swept across the southeastern US, with a single mile-wide EF4 tornado cutting directly through Tuscaloosa and Birmingham.',
+    fact:'Storm chasers and meteorologists still use this outbreak as a benchmark case for studying how tornado families form along a single squall line.' },
+
+  { id:'moore2013', name:'Moore Tornado', cat:'tornado', year:2013, date:'May 20, 2013', lat:35.34, lon:-97.49, x:229, y:152, region:'Moore, Oklahoma, USA',
+    stat1:{l:'Rating', v:'EF5'}, stat2:{l:'Lives lost', v:'24'},
+    overview:'An EF5 tornado tore through the Oklahoma City suburb of Moore, flattening two elementary schools and hundreds of homes in an area already struck by major tornadoes in 1999 and 2003.',
+    fact:'It was the third violent tornado to hit almost the exact same corridor of Moore within 14 years.' },
+
+  /* ---- HURRICANE (more) ---- */
+  { id:'mitch1998', name:'Hurricane Mitch', cat:'hurricane', year:1998, date:'October 1998', lat:15.0, lon:-86.0, x:261, y:208, region:'Honduras & Nicaragua',
+    stat1:{l:'Category', v:'5 (peak); stalled at landfall'}, stat2:{l:'Est. lives lost', v:'11,000–19,000+'},
+    overview:'Mitch weakened before landfall but then stalled for days over Central America, dumping catastrophic rainfall that triggered landslides and floods across an already fragile region.',
+    fact:'Some areas of Honduras received nearly two meters of rain in under a week — a multi-year total compressed into days.' },
+
+  { id:'andrew1992', name:'Hurricane Andrew', cat:'hurricane', year:1992, date:'August 24, 1992', lat:25.5, lon:-80.4, x:277, y:179, region:'South Florida, USA',
+    stat1:{l:'Category', v:'5 (at landfall)'}, stat2:{l:'Lives lost', v:'65'},
+    overview:'A compact but extraordinarily intense hurricane leveled entire subdivisions south of Miami, and for years stood as the costliest hurricane on record.',
+    fact:'The devastation directly led to a major overhaul of Florida\u2019s building codes for wind resistance.' },
+
+  { id:'harvey2017', name:'Hurricane Harvey', cat:'hurricane', year:2017, date:'August 2017', lat:29.76, lon:-95.37, x:235, y:167, region:'Houston, Texas, USA',
+    stat1:{l:'Peak rainfall', v:'~60+ inches (1,500+ mm)'}, stat2:{l:'Est. lives lost', v:'68–107'},
+    overview:'Harvey stalled over the Houston metro area for days after landfall, producing the heaviest tropical rainfall ever recorded in the continental US and flooding tens of thousands of homes.',
+    fact:'The storm dropped an estimated 33 trillion gallons of water over Texas and Louisiana combined.' },
+
+  { id:'ian2022', name:'Hurricane Ian', cat:'hurricane', year:2022, date:'September 28, 2022', lat:26.65, lon:-82.0, x:272, y:176, region:'Southwest Florida, USA',
+    stat1:{l:'Category', v:'4–5 (at landfall)'}, stat2:{l:'Est. lives lost', v:'~150'},
+    overview:'A powerful storm surge inundated barrier islands and coastal communities in southwest Florida, becoming one of the costliest hurricanes in US history.',
+    fact:'Some coastal areas saw storm surge over 4.5 meters (15 ft), reshaping entire stretches of the Gulf coastline.' },
+
+  /* ---- TYPHOON (more) ---- */
+  { id:'nina1975', name:'Typhoon Nina & Banqiao Dam Failure', cat:'typhoon', year:1975, date:'August 1975', lat:33.1, lon:114.1, x:817, y:158, region:'Zhumadian, Henan, China',
+    stat1:{l:'Cause', v:'Record rainfall & dam failure'}, stat2:{l:'Est. lives lost', v:'170,000–230,000'},
+    overview:'Record-breaking rainfall from Typhoon Nina overwhelmed the Banqiao Dam and dozens of smaller dams downstream, triggering a chain-reaction collapse that unleashed a wall of water across the region.',
+    fact:'It is considered one of the deadliest structural-failure disasters in history, and remained little-reported outside China for years afterward.' },
+
+  { id:'tip1979', name:'Typhoon Tip', cat:'typhoon', year:1979, date:'October 1979', lat:20.0, lon:135.0, x:875, y:194, region:'Northwest Pacific Ocean',
+    stat1:{l:'Diameter', v:'~2,220 km — largest on record'}, stat2:{l:'Lives lost', v:'~99'},
+    overview:'Typhoon Tip grew into the largest and most intense tropical cyclone ever measured, with gale-force winds spanning an area roughly the size of the continental United States.',
+    fact:'Its minimum central pressure of 870 hPa remains the lowest ever recorded for a tropical cyclone anywhere on Earth.' },
+
+  { id:'yagi2024', name:'Typhoon Yagi', cat:'typhoon', year:2024, date:'September 2024', lat:21.0, lon:106.0, x:794, y:192, region:'Northern Vietnam',
+    stat1:{l:'Category', v:'4–5 (peak)'}, stat2:{l:'Est. lives lost', v:'800+ (regional total)'},
+    overview:'The strongest typhoon to hit Vietnam in decades tore through the Philippines, southern China, and Vietnam in succession, with catastrophic flooding and landslides following its rains inland.',
+    fact:'Yagi underwent rapid intensification over unusually warm waters just before landfall, a pattern scientists are watching closely as ocean temperatures rise.' },
+
+  /* ---- SEVERE THUNDERSTORM (more) ---- */
+  { id:'derecho2012', name:'2012 North American Derecho', cat:'severeThunderstorm', year:2012, date:'June 29, 2012', lat:39.0, lon:-80.0, x:278, y:142, region:'Midwest to Mid-Atlantic, USA',
+    stat1:{l:'Track length', v:'~1,300 km in ~12 hours'}, stat2:{l:'Lives lost', v:'22'},
+    overview:'A fast-moving line of intense thunderstorms, called a derecho, raced from Iowa to the East Coast in under half a day, its straight-line winds toppling trees and knocking out power to millions during a heat wave.',
+    fact:'Because it struck so quickly with little warning, some meteorologists nicknamed it an "inland hurricane."' },
+
+  /* ---- BLIZZARD (more) ---- */
+  { id:'iranblizzard1972', name:'1972 Iran Blizzard', cat:'blizzard', year:1972, date:'February 1972', lat:34.5, lon:55.0, x:653, y:154, region:'Central & Southern Iran',
+    stat1:{l:'Duration', v:'~1 week'}, stat2:{l:'Est. lives lost', v:'~4,000'},
+    overview:'Considered the deadliest blizzard ever recorded, a week of relentless snowfall completely buried some rural villages, with snowdrifts reportedly reaching several meters deep.',
+    fact:'Some villages were so thoroughly buried that rescuers found them only by spotting chimney smoke rising from the snowpack.' },
+
+  { id:'afghanblizzard2008', name:'2008 Afghanistan Cold Wave & Blizzard', cat:'blizzard', year:2008, date:'January–February 2008', lat:34.5, lon:69.2, x:692, y:154, region:'Afghanistan',
+    stat1:{l:'Duration', v:'Several weeks'}, stat2:{l:'Est. lives lost', v:'~1,300'},
+    overview:'One of the harshest winters in decades combined heavy snow with extreme cold across rural Afghanistan, killing people and livestock alike and cutting off many mountain communities from aid.',
+    fact:'Widespread livestock deaths compounded the disaster by wiping out the livelihoods many rural families depended on.' },
+
+  { id:'stormofcentury1993', name:'Storm of the Century', cat:'blizzard', year:1993, date:'March 12–15, 1993', lat:35.0, lon:-82.0, x:272, y:153, region:'Eastern United States',
+    stat1:{l:'Area affected', v:'Gulf Coast to Canada'}, stat2:{l:'Est. lives lost', v:'~270–300'},
+    overview:'An enormous superstorm brought blizzard conditions, tornadoes, and record low pressure to a huge swath of the eastern US simultaneously — snow even fell in parts of the Florida Panhandle.',
+    fact:'At its peak, the storm affected roughly 40% of the US population in some way, from Cuba to Canada.' },
+
+  /* ---- HAILSTORM (more) ---- */
+  { id:'moradabad1888', name:'Moradabad Hailstorm', cat:'hailstorm', year:1888, date:'April 30, 1888', lat:28.83, lon:78.78, x:719, y:170, region:'Moradabad, Uttar Pradesh, India',
+    stat1:{l:'Hailstone size', v:'Reportedly up to goose-egg sized'}, stat2:{l:'Lives lost', v:'~246'},
+    overview:'The deadliest hailstorm ever recorded pelted the city with massive hailstones with little warning, killing people caught in the open and destroying crops and livestock across the region.',
+    fact:'Some historical accounts describe hailstones large and dense enough to kill on impact — extraordinary even by hailstorm standards.' },
+
+  { id:'munichhail1984', name:'Munich Hailstorm', cat:'hailstorm', year:1984, date:'July 12, 1984', lat:48.14, lon:11.58, x:532, y:116, region:'Munich, Germany',
+    stat1:{l:'Duration', v:'~20 minutes'}, stat2:{l:'Damage', v:'One of Europe\u2019s costliest hailstorms'},
+    overview:'A brief but intense supercell dropped tennis-ball-sized hail over Munich, damaging tens of thousands of cars, buildings, and even aircraft on the ground at the local airport.',
+    fact:'It remains a benchmark event in European insurance industry catastrophe modeling decades later.' },
+
+  /* ---- ICE STORM (more) ---- */
+  { id:'kentuckyice2009', name:'2009 Kentucky Ice Storm', cat:'icestorm', year:2009, date:'January 26–28, 2009', lat:37.5, lon:-85.0, x:264, y:146, region:'Kentucky & surrounding states, USA',
+    stat1:{l:'Power outages', v:'~1.3 million customers'}, stat2:{l:'Lives lost', v:'~35'},
+    overview:'A thick coating of ice snapped power lines and trees across a wide swath of the US South, leaving some rural residents without electricity for weeks in freezing conditions.',
+    fact:'It triggered one of the largest peacetime deployments of the Kentucky National Guard in the state\u2019s history, for relief efforts.' },
+
+  { id:'atlas2013', name:'Winter Storm Atlas', cat:'icestorm', year:2013, date:'October 3–5, 2013', lat:44.0, lon:-103.2, x:213, y:128, region:'Western South Dakota, USA',
+    stat1:{l:'Timing', v:'Unusually early in the season'}, stat2:{l:'Livestock lost', v:'Tens of thousands of cattle'},
+    overview:'An early-season blizzard coated the Black Hills region in heavy, wet snow and ice before cattle had grown their winter coats, leading to catastrophic livestock losses across the ranching industry.',
+    fact:'Some ranchers lost their entire herds in a single storm, with recovery taking years for the regional cattle industry.' },
+
+  /* ---- DUST STORM (more) ---- */
+  { id:'sydneydust2009', name:'Sydney "Red Dawn" Dust Storm', cat:'duststorm', year:2009, date:'September 23, 2009', lat:-33.87, lon:151.21, x:920, y:344, region:'Sydney, Australia',
+    stat1:{l:'Visibility', v:'Reduced to a few hundred meters'}, stat2:{l:'Lives lost', v:'0 reported'},
+    overview:'Drought-stricken red topsoil from inland Australia was swept up by strong winds and blanketed Sydney in a dense orange haze, turning morning skies an eerie red.',
+    fact:'The dust plume was reportedly large enough to be visible from space.' },
+
+  { id:'phoenixhaboob2011', name:'Phoenix Haboob', cat:'duststorm', year:2011, date:'July 5, 2011', lat:33.45, lon:-112.07, x:189, y:157, region:'Phoenix, Arizona, USA',
+    stat1:{l:'Height', v:'~1 mile (1.6 km)'}, stat2:{l:'Width', v:'~100 miles (160 km)'},
+    overview:'A collapsing thunderstorm pushed a towering wall of dust across the Phoenix metro area, dramatically reducing visibility to near zero within minutes as it rolled through.',
+    fact:'The dramatic wall-cloud footage of this haboob went viral and is still used as a textbook example of the phenomenon.' },
+
+  /* ---- DROUGHT (more) ---- */
+  { id:'sahel1968', name:'Sahel Drought', cat:'drought', year:1968, date:'1968–1985', lat:15.0, lon:5.0, region:'Sahel region, West Africa', x:514, y:208,
+    stat1:{l:'Duration', v:'~17 years'}, stat2:{l:'Est. lives lost', v:'Hundreds of thousands to over 1 million'},
+    overview:'A prolonged, multi-decade drought across the semi-arid Sahel belt collapsed agriculture and pastoral herding, triggering repeated famines and mass displacement across several countries.',
+    fact:'The disaster helped establish famine early-warning systems that international agencies still rely on today.' },
+
+  { id:'milldrought2001', name:'Millennium Drought', cat:'drought', year:2001, date:'~2001–2009', lat:-34.0, lon:143.0, region:'Murray–Darling Basin, Australia', x:897, y:344,
+    stat1:{l:'Duration', v:'~8 years'}, stat2:{l:'Impact', v:'Severe damage to farming & river systems'},
+    overview:'One of the longest and most severe droughts in Australia\u2019s recorded history crippled agriculture across the Murray-Darling Basin and forced lasting changes to national water policy.',
+    fact:'The drought pushed Australia to establish one of the world\u2019s most sophisticated water-trading markets to manage scarce supplies.' },
+
+  { id:'horndrought2022', name:'2022 Horn of Africa Drought', cat:'drought', year:2022, date:'2020–2023', lat:2.5, lon:45.0, region:'Somalia & the Horn of Africa', x:625, y:247,
+    stat1:{l:'Failed rainy seasons', v:'5 consecutive'}, stat2:{l:'People at crisis-level hunger', v:'20+ million'},
+    overview:'A repeat of the same 2011 crisis in the same region, five consecutive failed rainy seasons pushed millions toward famine conditions across Somalia, Ethiopia, and Kenya.',
+    fact:'It was described by aid agencies as the region\u2019s longest drought in at least four decades.' },
+
+  /* ---- WILDFIRE (more) ---- */
+  { id:'peshtigo1871', name:'Peshtigo Fire', cat:'wildfire', year:1871, date:'October 8, 1871', lat:45.05, lon:-87.75, x:256, y:125, region:'Peshtigo, Wisconsin, USA',
+    stat1:{l:'Area burned', v:'~1.2 million acres'}, stat2:{l:'Est. lives lost', v:'1,500–2,500'},
+    overview:'The deadliest wildfire in US history tore through logging communities on the same night as the Great Chicago Fire, which drew away most of the era\u2019s news attention.',
+    fact:'Because it happened the same night as Chicago\u2019s fire, Peshtigo remains far less famous despite killing many more people.' },
+
+  { id:'campfire2018', name:'Camp Fire', cat:'wildfire', year:2018, date:'November 2018', lat:39.76, lon:-121.6, x:162, y:140, region:'Paradise, California, USA',
+    stat1:{l:'Area burned', v:'~153,000 acres'}, stat2:{l:'Lives lost', v:'85'},
+    overview:'Sparked by faulty electrical equipment, the fire spread with extraordinary speed, nearly destroying the entire town of Paradise within hours and becoming California\u2019s deadliest wildfire on record.',
+    fact:'It moved so fast that some residents had only minutes to evacuate before flames reached their neighborhoods.' },
+
+  { id:'mauifire2023', name:'Maui Wildfires', cat:'wildfire', year:2023, date:'August 2023', lat:20.87, lon:-156.68, x:65, y:192, region:'Lahaina, Maui, Hawaii, USA',
+    stat1:{l:'Wind conditions', v:'Hurricane-force gusts'}, stat2:{l:'Lives lost', v:'~100'},
+    overview:'Fast-moving fires driven by dry conditions and hurricane-force winds tore through the historic town of Lahaina, destroying it almost completely within hours.',
+    fact:'It became the deadliest US wildfire in over a century.' },
+
+  /* ---- HEATWAVE (more) ---- */
+  { id:'russiaheat2010', name:'2010 Russia Heatwave', cat:'heatwave', year:2010, date:'July–August 2010', lat:55.75, lon:37.6, x:604, y:95, region:'Moscow, Russia',
+    stat1:{l:'Duration', v:'~44 days'}, stat2:{l:'Est. lives lost', v:'~55,000'},
+    overview:'Record-breaking heat combined with widespread peat-bog wildfires blanketed Moscow in thick smog for weeks, overwhelming hospitals and morgues.',
+    fact:'Moscow briefly recorded some of the worst air-quality readings ever measured in a major world capital.' },
+
+  { id:'chicagoheat1995', name:'1995 Chicago Heat Wave', cat:'heatwave', year:1995, date:'July 1995', lat:41.88, lon:-87.63, x:257, y:134, region:'Chicago, Illinois, USA',
+    stat1:{l:'Duration', v:'~5 days'}, stat2:{l:'Lives lost', v:'~739'},
+    overview:'A brief but brutal heat wave disproportionately killed elderly residents living alone without air conditioning, exposing gaps in the city\u2019s emergency response for vulnerable populations.',
+    fact:'The disaster remains a landmark case study in public-health research on social isolation and heat vulnerability.' },
+
+  { id:'heatdome2021', name:'Pacific Northwest Heat Dome', cat:'heatwave', year:2021, date:'June 2021', lat:50.23, lon:-121.58, x:162, y:111, region:'British Columbia, Canada & US Pacific Northwest',
+    stat1:{l:'Record temp', v:'49.6°C (121.3°F) in Lytton, BC'}, stat2:{l:'Est. lives lost', v:'1,400+'},
+    overview:'An unprecedented atmospheric "heat dome" shattered all-time temperature records across a region unaccustomed to extreme heat, with almost no air conditioning infrastructure in place to cope.',
+    fact:'The village of Lytton set Canada\u2019s all-time temperature record — then burned down in a wildfire the very next day.' },
+
+  { id:'euroheat2022', name:'2022 European Heatwave', cat:'heatwave', year:2022, date:'Summer 2022', lat:40.4, lon:-3.7, x:490, y:138, region:'Spain & Western Europe',
+    stat1:{l:'Duration', v:'Multiple waves over summer'}, stat2:{l:'Est. lives lost', v:'60,000+ (regional total)'},
+    overview:'Nearly two decades after the deadly 2003 heatwave, Europe faced a strikingly similar pattern of extreme summer heat, again straining hospitals and killing mostly elderly residents.',
+    fact:'Researchers noted the eerie similarity to 2003, raising concerns that such summers may become the new normal rather than rare extremes.' },
+
+  /* ---- COLD WAVE (more) ---- */
+  { id:'chinawinter2008', name:'2008 China Winter Storms', cat:'coldwave', year:2008, date:'January–February 2008', lat:28.2, lon:112.9, x:814, y:172, region:'Hunan & Southern China',
+    stat1:{l:'Timing', v:'Lunar New Year travel season'}, stat2:{l:'Est. lives lost', v:'100+'},
+    overview:'An unusually severe and prolonged cold snap coated southern China in ice and snow just as tens of millions were traveling home for the Lunar New Year, stranding many for days.',
+    fact:'Power lines collapsed under the weight of ice across several provinces, cutting electricity to millions during the coldest stretch.' },
+
+  { id:'arcticoutbreak1899', name:'Great Arctic Outbreak', cat:'coldwave', year:1899, date:'February 1899', lat:30.0, lon:-90.0, x:250, y:167, region:'Southern United States',
+    stat1:{l:'Notable record', v:'Ice reported on the Gulf of Mexico'}, stat2:{l:'Region affected', v:'Nearly the entire continental US'},
+    overview:'One of the most extreme cold outbreaks in US recorded history sent arctic air deep into the Deep South, with ice reportedly forming along parts of the Gulf Coast.',
+    fact:'The cold was so extreme that ice floes were reported drifting in the Gulf of Mexico near New Orleans.' },
+
+  { id:'polarvortex2019', name:'2019 Polar Vortex', cat:'coldwave', year:2019, date:'January 2019', lat:41.9, lon:-87.6, x:257, y:134, region:'US Midwest',
+    stat1:{l:'Wind chill', v:'Near -50°F (-45°C) in places'}, stat2:{l:'Est. lives lost', v:'20+'},
+    overview:'A plunge of Arctic air split off from the polar vortex and settled over the Midwest, bringing some of the coldest temperatures the region had seen in decades and shutting down entire cities.',
+    fact:'Some areas were colder than parts of Antarctica during the peak of the outbreak.' },
+];
+
+/* ============ LIVE DATA (Epicenter API) ============
+   By default the app runs entirely off FALLBACK_DISASTERS above so it works
+   standalone. If an API base URL is provided — via ?api=https://your-api.com
+   in the page URL, or by setting window.EPICENTER_API_BASE before this
+   script runs — it tries to load live records from GET /api/disasters
+   instead, and falls back to the bundled dataset if that fails or times out.
+*/
+const API_BASE = new URLSearchParams(location.search).get('api')
+  || (typeof window !== 'undefined' ? window.EPICENTER_API_BASE : null)
+  || null;
+
+let DISASTERS = FALLBACK_DISASTERS;
+let disasterById = {};
+
+function mapApiRecordToLocal(r){
+  return {
+    id: r.id, name: r.name, cat: r.category_key, year: r.year, date: r.event_date,
+    lat: r.lat, lon: r.lon, x: r.map_x, y: r.map_y, region: r.region,
+    stat1: { l: r.stat1_label, v: r.stat1_value },
+    stat2: { l: r.stat2_label, v: r.stat2_value },
+    overview: r.overview, fact: r.fun_fact,
+  };
+}
+
+async function loadLiveDisasters(){
+  if(!API_BASE) return null;
+  try{
+    const controller = new AbortController();
+    const timeout = setTimeout(()=>controller.abort(), 5000);
+    const res = await fetch(`${API_BASE.replace(/\/$/,'')}/api/disasters?limit=500`, { signal: controller.signal });
+    clearTimeout(timeout);
+    if(!res.ok) throw new Error(`API returned ${res.status}`);
+    const data = await res.json();
+    if(!Array.isArray(data.items) || !data.items.length) throw new Error('API returned no records');
+    return data.items.map(mapApiRecordToLocal);
+  }catch(err){
+    console.warn('[Epicenter] Live API unreachable, using bundled dataset instead:', err);
+    return null;
+  }
+}
+
+/* ============ SEISMOGRAPH WAVEFORM ============ */
+(function drawWave(){
+  const svg = document.getElementById('waveSvg');
+  const w = 1200, mid = 22;
+  let d = `M0,${mid}`;
+  let x = 0;
+  while(x <= w){
+    const spike = Math.random() < 0.12;
+    const amp = spike ? (14 + Math.random()*16) : (Math.random()*6);
+    const dir = Math.random() < 0.5 ? 1 : -1;
+    x += spike ? 4 + Math.random()*6 : 10 + Math.random()*14;
+    d += ` L${x.toFixed(1)},${(mid + dir*amp).toFixed(1)}`;
+  }
+  d += ` L${w},${mid}`;
+  const full = d + ' ' + d.replace('M0', `M${w}`).replace(/^M\d+,\d+ /, s=>s); // second copy
+  const ns = 'http://www.w3.org/2000/svg';
+  [0,1].forEach(i=>{
+    const p = document.createElementNS(ns,'path');
+    p.setAttribute('d', d);
+    p.setAttribute('transform', `translate(${i*1200},0)`);
+    p.setAttribute('fill','none');
+    p.setAttribute('stroke', i===0 ? '#E8735A' : '#45B8CB');
+    p.setAttribute('stroke-width','1.3');
+    p.setAttribute('opacity','0.8');
+    svg.appendChild(p);
+  });
+})();
+
+/* ============ BASEMAP (dot-matrix continents) ============ */
+(function drawBasemap(){
+  const svg = document.getElementById('basemap');
+  const ns = 'http://www.w3.org/2000/svg';
+
+  // faint graticule
+  for(let gx=0; gx<=1000; gx+=100){
+    const l = document.createElementNS(ns,'line');
+    l.setAttribute('x1',gx); l.setAttribute('x2',gx); l.setAttribute('y1',0); l.setAttribute('y2',500);
+    l.setAttribute('stroke','rgba(255,255,255,0.035)'); l.setAttribute('stroke-width','1');
+    svg.appendChild(l);
+  }
+  for(let gy=0; gy<=500; gy+=100){
+    const l = document.createElementNS(ns,'line');
+    l.setAttribute('x1',0); l.setAttribute('x2',1000); l.setAttribute('y1',gy); l.setAttribute('y2',gy);
+    l.setAttribute('stroke','rgba(255,255,255,0.035)'); l.setAttribute('stroke-width','1');
+    svg.appendChild(l);
+  }
+
+  const ellipses = [
+    // North America
+    {cx:170,cy:78,rx:48,ry:26},{cx:235,cy:88,rx:92,ry:34},{cx:225,cy:150,rx:78,ry:42},
+    {cx:190,cy:208,rx:42,ry:32},{cx:150,cy:225,rx:22,ry:18},{cx:375,cy:55,rx:38,ry:24},
+    // South America
+    {cx:250,cy:270,rx:52,ry:38},{cx:258,cy:328,rx:58,ry:44},{cx:240,cy:388,rx:34,ry:40},{cx:227,cy:436,rx:18,ry:32},
+    // Europe
+    {cx:488,cy:96,rx:52,ry:30},{cx:528,cy:78,rx:26,ry:20},{cx:508,cy:118,rx:34,ry:20},{cx:470,cy:118,rx:22,ry:16},
+    // Africa
+    {cx:495,cy:172,rx:58,ry:36},{cx:503,cy:232,rx:54,ry:40},{cx:493,cy:300,rx:44,ry:40},{cx:520,cy:255,rx:22,ry:26},
+    // Asia
+    {cx:600,cy:100,rx:88,ry:38},{cx:745,cy:88,rx:98,ry:38},{cx:600,cy:150,rx:52,ry:32},
+    {cx:650,cy:178,rx:42,ry:28},{cx:632,cy:210,rx:26,ry:22},{cx:748,cy:160,rx:58,ry:34},
+    {cx:800,cy:140,rx:22,ry:28},{cx:700,cy:220,rx:56,ry:26},{cx:790,cy:210,rx:20,ry:14},
+    // Australia / NZ
+    {cx:790,cy:340,rx:54,ry:30},{cx:855,cy:378,rx:10,ry:16},
+    // Indonesia / islands
+    {cx:700,cy:242,rx:34,ry:12},{cx:742,cy:250,rx:22,ry:10},{cx:800,cy:255,rx:16,ry:9},{cx:833,cy:251,rx:13,ry:9},
+    // Iceland / Greenland edge
+    {cx:448,cy:70,rx:12,ry:8},
+    // Madagascar
+    {cx:552,cy:295,rx:8,ry:20},
+    // Kamchatka / Russian far east
+    {cx:935,cy:105,rx:32,ry:30},
+    // Iberian peninsula
+    {cx:485,cy:130,rx:26,ry:16},
+    // Eastern Mediterranean / Libyan coast
+    {cx:545,cy:163,rx:34,ry:20},
+    // Philippines
+    {cx:845,cy:200,rx:16,ry:32},
+    // Horn of Africa
+    {cx:595,cy:238,rx:65,ry:35},
+    // Eastern Australia (Sydney region)
+    {cx:900,cy:345,rx:26,ry:18},
+    // Quebec / eastern Canada
+    {cx:310,cy:108,rx:32,ry:26},
+    // Southern Central America
+    {cx:245,cy:212,rx:24,ry:18},
+    // Honshu / Kyushu / Hokkaido, Japan
+    {cx:880,cy:145,rx:35,ry:20},{cx:855,cy:160,rx:18,ry:14},{cx:878,cy:125,rx:22,ry:18},
+    // Taiwan
+    {cx:825,cy:180,rx:12,ry:16},
+    // Southeastern Alaska panhandle
+    {cx:135,cy:90,rx:25,ry:20},
+    // Hawaiian islands
+    {cx:70,cy:197,rx:12,ry:8},
+    // Java, southern coast
+    {cx:790,cy:265,rx:45,ry:12},
+    // Colombia / Venezuela
+    {cx:275,cy:250,rx:35,ry:30},
+    // Sicily
+    {cx:535,cy:140,rx:14,ry:10},
+    // Caribbean / Lesser Antilles arc
+    {cx:305,cy:203,rx:40,ry:18},
+    // Pacific Northwest coast extension
+    {cx:172,cy:112,rx:32,ry:26},
+    // Myanmar / Indochina coast
+    {cx:745,cy:205,rx:35,ry:25},
+    // Mozambique / southeastern Africa
+    {cx:550,cy:290,rx:55,ry:38},
+    // Central-eastern China extension
+    {cx:800,cy:165,rx:40,ry:28},
+    // Iran
+    {cx:635,cy:155,rx:25,ry:22},
+    // Northern India / Uttar Pradesh
+    {cx:695,cy:178,rx:35,ry:22},
+  ];
+
+  function inLand(px,py){
+    for(const e of ellipses){
+      const dx=(px-e.cx)/e.rx, dy=(py-e.cy)/e.ry;
+      if(dx*dx+dy*dy <= 1) return true;
+    }
+    return false;
+  }
+
+  const frag = document.createDocumentFragment();
+  for(let x=2; x<1000; x+=9){
+    for(let y=2; y<500; y+=9){
+      const jx = x + (Math.random()-0.5)*4;
+      const jy = y + (Math.random()-0.5)*4;
+      if(inLand(jx,jy)){
+        const c = document.createElementNS(ns,'circle');
+        c.setAttribute('cx', jx.toFixed(1));
+        c.setAttribute('cy', jy.toFixed(1));
+        c.setAttribute('r', (0.9 + Math.random()*0.8).toFixed(2));
+        c.setAttribute('fill', '#33456A');
+        c.setAttribute('opacity', (0.35 + Math.random()*0.35).toFixed(2));
+        frag.appendChild(c);
+      }
+    }
+  }
+  svg.appendChild(frag);
+})();
+
+/* ============ CHIPS ============ */
+const activeCats = new Set(Object.keys(CATS));
+const chipRow = document.getElementById('chipRow');
+
+function renderChips(){
+  chipRow.innerHTML = '';
+
+  const quick = document.createElement('div');
+  quick.className = 'chip-quick';
+  quick.innerHTML = `<button type="button" id="chipAll">All</button><span>/</span><button type="button" id="chipNone">None</button>`;
+  chipRow.appendChild(quick);
+
+  FAMILIES.forEach(fam=>{
+    const group = document.createElement('div');
+    group.className = 'chip-group';
+    const famLabel = document.createElement('span');
+    famLabel.className = 'chip-group-label';
+    famLabel.textContent = fam.label;
+    group.appendChild(famLabel);
+
+    fam.keys.forEach(key=>{
+      const c = CATS[key];
+      const chip = document.createElement('button');
+      chip.className = 'chip' + (activeCats.has(key) ? ' active' : '');
+      chip.style.setProperty('--dot-color', c.hex);
+      chip.innerHTML = `<span class="dot"></span>${c.label}`;
+      chip.addEventListener('click', ()=>{
+        if(activeCats.has(key)){ activeCats.delete(key); } else { activeCats.add(key); }
+        renderChips();
+        applyFilter();
+      });
+      group.appendChild(chip);
+    });
+    chipRow.appendChild(group);
+  });
+
+  document.getElementById('chipAll').addEventListener('click', ()=>{
+    Object.keys(CATS).forEach(k=>activeCats.add(k));
+    renderChips(); applyFilter();
+  });
+  document.getElementById('chipNone').addEventListener('click', ()=>{
+    activeCats.clear();
+    renderChips(); applyFilter();
+  });
+}
+renderChips();
+
+/* ============ PINS ============ */
+const mapWrap = document.getElementById('mapWrap');
+const tooltip = document.getElementById('tooltip');
+const explored = new Set();
+
+function renderPins(){
+  mapWrap.querySelectorAll('.pin').forEach(p => p.remove());
+  disasterById = Object.fromEntries(DISASTERS.map(d=>[d.id,d]));
+
+  DISASTERS.forEach(d=>{
+    if(d.x == null || d.y == null) return; // skip records without stylized map coords
+    const pin = document.createElement('button');
+    pin.className = 'pin';
+    pin.style.left = (d.x/1000*100) + '%';
+    pin.style.top  = (d.y/500*100) + '%';
+    pin.style.setProperty('--c', CATS[d.cat]?.hex || '#888');
+    pin.dataset.id = d.id;
+    pin.dataset.cat = d.cat;
+    pin.setAttribute('aria-label', `${d.name}, ${d.date}`);
+    pin.innerHTML = `<span class="ring"></span><span class="ring r2"></span><span class="core"></span>`;
+
+    pin.addEventListener('mouseenter', ()=>{
+      tooltip.innerHTML = `${d.name}<span class="yr">${d.year<0?Math.abs(d.year)+' BCE':d.year}</span>`;
+      tooltip.style.left = pin.style.left;
+      tooltip.style.top = pin.style.top;
+      tooltip.classList.add('show');
+    });
+    pin.addEventListener('mouseleave', ()=> tooltip.classList.remove('show'));
+    pin.addEventListener('click', ()=> openPanel(d.id));
+
+    mapWrap.appendChild(pin);
+  });
+}
+
+function passesYear(d){
+  const includePre2000 = document.getElementById('pre2000Toggle').checked;
+  if(d.year < 2000) return includePre2000;
+  const lo = parseInt(yearMinInput.value,10);
+  const hi = parseInt(yearMaxInput.value,10);
+  return d.year >= lo && d.year <= hi;
+}
+
+function applyFilter(){
+  let visible = 0;
+  document.querySelectorAll('.pin').forEach(p=>{
+    const d = disasterById[p.dataset.id];
+    const on = activeCats.has(p.dataset.cat) && passesYear(d);
+    p.classList.toggle('dimmed', !on);
+    if(on) visible++;
+  });
+  document.getElementById('visibleCount').textContent = `${visible} event${visible===1?'':'s'} shown`;
+}
+
+/* ---- Year range slider (auto-extends to the real current year) ---- */
+const CURRENT_YEAR = new Date().getFullYear();
+const YEAR_MIN_BOUND = 2000;
+
+const yearMinInput = document.getElementById('yearMin');
+const yearMaxInput = document.getElementById('yearMax');
+const rangeFill = document.getElementById('rangeFill');
+const yearRangeLabel = document.getElementById('yearRangeLabel');
+const rangeTicks = document.getElementById('rangeTicks');
+
+[yearMinInput, yearMaxInput].forEach(inp=>{
+  inp.min = YEAR_MIN_BOUND;
+  inp.max = CURRENT_YEAR;
+});
+yearMinInput.value = YEAR_MIN_BOUND;
+yearMaxInput.value = CURRENT_YEAR;
+
+rangeTicks.innerHTML = `<span>${YEAR_MIN_BOUND}</span><span>${CURRENT_YEAR}</span>`;
+
+function updateYearSlider(){
+  let lo = parseInt(yearMinInput.value,10);
+  let hi = parseInt(yearMaxInput.value,10);
+  if(lo > hi){
+    // keep handles from crossing — snap the one being dragged to its neighbor
+    if(document.activeElement === yearMinInput){ yearMinInput.value = hi; lo = hi; }
+    else { yearMaxInput.value = lo; hi = lo; }
+  }
+  const span = (CURRENT_YEAR - YEAR_MIN_BOUND) || 1;
+  const pctLo = ((lo - YEAR_MIN_BOUND) / span) * 100;
+  const pctHi = ((hi - YEAR_MIN_BOUND) / span) * 100;
+  rangeFill.style.left = pctLo + '%';
+  rangeFill.style.right = (100 - pctHi) + '%';
+  yearRangeLabel.textContent = (lo === hi) ? `${lo}` : `${lo} – ${hi}`;
+  applyFilter();
+}
+yearMinInput.addEventListener('input', updateYearSlider);
+yearMaxInput.addEventListener('input', updateYearSlider);
+document.getElementById('pre2000Toggle').addEventListener('change', applyFilter);
+
+function boot(){
+  renderPins();
+  updateYearSlider(); // rebuilds the fill/label and calls applyFilter()
+}
+
+boot(); // instant render, using FALLBACK_DISASTERS unless already swapped
+
+loadLiveDisasters().then(live=>{
+  const note = document.getElementById('dataSourceNote');
+  if(live && live.length){
+    DISASTERS = live;
+    explored.clear();
+    boot();
+    if(note) note.textContent = `live data from API · ${live.length} events`;
+  }else if(note){
+    note.textContent = API_BASE ? 'API unreachable — showing bundled offline dataset' : 'offline dataset';
+  }
+});
+
+/* ============ PANEL ============ */
+const panel = document.getElementById('panel');
+const scrim = document.getElementById('scrim');
+const panelBody = document.getElementById('panelBody');
+const panelBadge = document.getElementById('panelBadge');
+const panelFooter = document.getElementById('panelFooter');
+const closeBtn = document.getElementById('closeBtn');
+const logCounter = document.getElementById('logCounter');
+
+function coordLabel(lat, lon){
+  const ns = lat>=0?'N':'S', ew = lon>=0?'E':'W';
+  return `${Math.abs(lat).toFixed(2)}°${ns}, ${Math.abs(lon).toFixed(2)}°${ew}`;
+}
+
+function openPanel(id){
+  const d = DISASTERS.find(x=>x.id===id);
+  if(!d) return;
+  const c = CATS[d.cat];
+
+  panelBadge.style.setProperty('--c', c.hex);
+  panelBadge.textContent = c.label;
+
+  panelBody.innerHTML = `
+    <h2>${d.name}</h2>
+    <div class="panel-meta">${d.date} · ${d.region}</div>
+    <div class="stat-grid">
+      <div class="stat"><div class="label">${d.stat1.l}</div><div class="val">${d.stat1.v}</div></div>
+      <div class="stat"><div class="label">${d.stat2.l}</div><div class="val">${d.stat2.v}</div></div>
+    </div>
+    <p class="overview">${d.overview}</p>
+    <div class="funfact" style="--c:${c.hex}">
+      <span class="lbl">Did you know</span>${d.fact}
+    </div>
+  `;
+  panelFooter.textContent = `COORDINATES ${coordLabel(d.lat, d.lon)}`;
+
+  document.querySelectorAll('.pin').forEach(p=> p.classList.toggle('active', p.dataset.id===id));
+
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden','false');
+  scrim.classList.add('open');
+
+  if(!explored.has(id)){
+    explored.add(id);
+    const el = document.querySelector(`.pin[data-id="${id}"]`);
+    if(el) el.classList.add('explored');
+    updateCounter();
+  }
+}
+
+function closePanel(){
+  panel.classList.remove('open');
+  panel.setAttribute('aria-hidden','true');
+  scrim.classList.remove('open');
+  document.querySelectorAll('.pin').forEach(p=> p.classList.remove('active'));
+}
+closeBtn.addEventListener('click', closePanel);
+scrim.addEventListener('click', closePanel);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePanel(); });
+
+function updateCounter(){
+  logCounter.innerHTML = `<b>${explored.size}</b> / ${DISASTERS.length} sites logged`;
+  logCounter.classList.toggle('complete', explored.size === DISASTERS.length);
+  if(explored.size === DISASTERS.length){
+    logCounter.innerHTML = `🏅 Atlas complete — all ${DISASTERS.length} sites logged`;
+  }
+}
+
+/* ============ SURPRISE ME ============ */
+document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+  const pool = DISASTERS.filter(d=> activeCats.has(d.cat) && passesYear(d));
+  const list = pool.length ? pool : DISASTERS;
+  const pick = list[Math.floor(Math.random()*list.length)];
+  const el = document.querySelector(`.pin[data-id="${pick.id}"]`);
+  if(el){
+    el.style.transition = 'transform .4s ease';
+    el.style.transform = 'translate(-50%,-50%) scale(1.6)';
+    setTimeout(()=>{ el.style.transform = 'translate(-50%,-50%) scale(1)'; }, 380);
+  }
+  openPanel(pick.id);
+});
+</script>
+</body>
+</html>

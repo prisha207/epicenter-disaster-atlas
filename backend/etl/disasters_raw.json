@@ -1,0 +1,2576 @@
+[
+  {
+    "id": "valdivia1960",
+    "name": "Great Chilean Earthquake",
+    "cat": "earthquake",
+    "year": 1960,
+    "date": "May 22, 1960",
+    "lat": -39.5,
+    "lon": -73.1,
+    "x": 297,
+    "y": 360,
+    "region": "Valdivia, Chile",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "9.5 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "1,000–6,000"
+    },
+    "overview": "The strongest earthquake ever recorded by modern instruments ruptured roughly 1,000 km of fault off south-central Chile. The shaking and the tsunami it triggered devastated the region and sent waves racing across the entire Pacific basin.",
+    "fact": "The tsunami crossed the Pacific and struck Hawaii and Japan roughly 15 and 22 hours later, still causing deaths thousands of kilometers from the source."
+  },
+  {
+    "id": "indianocean2004",
+    "name": "Indian Ocean Earthquake & Tsunami",
+    "cat": "tsunami",
+    "year": 2004,
+    "date": "December 26, 2004",
+    "lat": 3.3,
+    "lon": 95.9,
+    "x": 766,
+    "y": 241,
+    "region": "off Sumatra, Indonesia",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "9.1 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~230,000"
+    },
+    "overview": "A megathrust rupture beneath the Indian Ocean displaced a huge volume of seawater, sending tsunami waves across fourteen countries within hours. It stands among the deadliest natural disasters ever documented.",
+    "fact": "The quake was powerful enough to very slightly shift the planet’s mass distribution, marginally speeding up Earth’s rotation."
+  },
+  {
+    "id": "tohoku2011",
+    "name": "Tōhoku Earthquake & Tsunami",
+    "cat": "tsunami",
+    "year": 2011,
+    "date": "March 11, 2011",
+    "lat": 38.3,
+    "lon": 142.4,
+    "x": 896,
+    "y": 144,
+    "region": "off Honshu, Japan",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "9.0–9.1 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~18,500"
+    },
+    "overview": "One of the most closely instrumented disasters in history: a massive undersea rupture sent walls of water up to 40 meters high into the Tōhoku coastline and triggered a meltdown at the Fukushima Daiichi nuclear plant.",
+    "fact": "The quake physically moved Japan’s main island eastward by up to 2.4 meters and tilted the Earth’s axis by a few centimeters."
+  },
+  {
+    "id": "krakatoa1883",
+    "name": "Eruption of Krakatoa",
+    "cat": "volcano",
+    "year": 1883,
+    "date": "August 26–27, 1883",
+    "lat": -6.1,
+    "lon": 105.4,
+    "x": 793,
+    "y": 267,
+    "region": "Sunda Strait, Indonesia",
+    "stat1": {
+      "l": "VEI",
+      "v": "6"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~36,000"
+    },
+    "overview": "The island volcano collapsed in a series of explosive blasts, most of the toll coming from the tsunamis the eruption generated along nearby coastlines.",
+    "fact": "The final explosion is considered one of the loudest sounds in recorded history — reportedly heard almost 3,000 miles away on Rodrigues Island."
+  },
+  {
+    "id": "sthelens1980",
+    "name": "Mount St. Helens Eruption",
+    "cat": "volcano",
+    "year": 1980,
+    "date": "May 18, 1980",
+    "lat": 46.2,
+    "lon": -122.2,
+    "x": 161,
+    "y": 122,
+    "region": "Washington, USA",
+    "stat1": {
+      "l": "VEI",
+      "v": "5"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "57"
+    },
+    "overview": "A bulging north flank gave way in the largest landslide ever recorded, uncorking a lateral blast that flattened forest for miles and sent an ash column 24 km into the sky.",
+    "fact": "The eruption lowered the mountain’s summit by roughly 400 meters (1,300 ft), permanently changing its shape."
+  },
+  {
+    "id": "sanfrancisco1906",
+    "name": "San Francisco Earthquake",
+    "cat": "earthquake",
+    "year": 1906,
+    "date": "April 18, 1906",
+    "lat": 37.75,
+    "lon": -122.4,
+    "x": 160,
+    "y": 145,
+    "region": "San Francisco, USA",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "~7.9"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~3,000"
+    },
+    "overview": "Rupture along nearly 300 miles of the San Andreas Fault shook the city violently, but it was the fires that followed — burning for days — that destroyed most of the city.",
+    "fact": "The disaster pushed early seismology forward dramatically and shaped modern earthquake-resistant building codes in the US."
+  },
+  {
+    "id": "vesuvius79",
+    "name": "Eruption of Vesuvius",
+    "cat": "volcano",
+    "year": 79,
+    "date": "79 CE (traditionally October)",
+    "lat": 40.8,
+    "lon": 14.4,
+    "x": 540,
+    "y": 137,
+    "region": "Pompeii & Herculaneum, Italy",
+    "stat1": {
+      "l": "VEI",
+      "v": "5"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "2,000–16,000"
+    },
+    "overview": "A sudden, violent eruption buried the Roman towns of Pompeii and Herculaneum under ash and pumice, preserving them in remarkable detail for nearly 1,700 years.",
+    "fact": "Pyroclastic surges are estimated to have moved at over 100 mph at temperatures near 300°C — fast and hot enough to kill almost instantly."
+  },
+  {
+    "id": "haiti2010",
+    "name": "Haiti Earthquake",
+    "cat": "earthquake",
+    "year": 2010,
+    "date": "January 12, 2010",
+    "lat": 18.5,
+    "lon": -72.5,
+    "x": 299,
+    "y": 199,
+    "region": "near Port-au-Prince, Haiti",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.0 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "100,000–160,000+"
+    },
+    "overview": "A shallow rupture close to the densely populated capital caused catastrophic building collapse, compounded by fragile infrastructure and a strained emergency response.",
+    "fact": "Estimates of the death toll vary enormously between sources — from around 100,000 to over 300,000 — making it one of the most disputed tolls of any modern disaster."
+  },
+  {
+    "id": "tambora1815",
+    "name": "Eruption of Mount Tambora",
+    "cat": "volcano",
+    "year": 1815,
+    "date": "April 1815",
+    "lat": -8.25,
+    "lon": 118,
+    "x": 828,
+    "y": 273,
+    "region": "Sumbawa, Indonesia",
+    "stat1": {
+      "l": "VEI",
+      "v": "7 — largest on record"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "71,000–100,000+"
+    },
+    "overview": "The most powerful eruption in recorded history ejected so much ash into the stratosphere that it disrupted global climate the following year.",
+    "fact": "1816 became known as the \"Year Without a Summer\" — crop failures from the ash-dimmed skies may have inspired Mary Shelley to write Frankenstein that gloomy season."
+  },
+  {
+    "id": "bhola1970",
+    "name": "Bhola Cyclone",
+    "cat": "tropicalCyclone",
+    "year": 1970,
+    "date": "November 1970",
+    "lat": 22.8,
+    "lon": 90.4,
+    "x": 751,
+    "y": 187,
+    "region": "Ganges Delta, East Pakistan (now Bangladesh)",
+    "stat1": {
+      "l": "Category",
+      "v": "3 (at landfall)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "300,000–500,000"
+    },
+    "overview": "A powerful storm surge swept over the low-lying islands of the Ganges Delta with little warning, making this the deadliest tropical cyclone ever recorded.",
+    "fact": "Anger over the slow disaster response is widely seen as a factor that fueled the political movement leading to Bangladesh’s independence the following year."
+  },
+  {
+    "id": "katrina2005",
+    "name": "Hurricane Katrina",
+    "cat": "hurricane",
+    "year": 2005,
+    "date": "August 29, 2005",
+    "lat": 29.95,
+    "lon": -90.07,
+    "x": 250,
+    "y": 167,
+    "region": "New Orleans, Louisiana, USA",
+    "stat1": {
+      "l": "Category",
+      "v": "3 (at landfall)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "1,392+"
+    },
+    "overview": "Levee failures around New Orleans flooded roughly 80% of the city after the storm passed, turning a hurricane into a prolonged urban flooding catastrophe.",
+    "fact": "Storm surge along the Mississippi coast reached about 8.5 meters (28 ft) — among the highest ever measured in the United States."
+  },
+  {
+    "id": "tangshan1976",
+    "name": "Tangshan Earthquake",
+    "cat": "earthquake",
+    "year": 1976,
+    "date": "July 28, 1976",
+    "lat": 39.6,
+    "lon": 118.2,
+    "x": 828,
+    "y": 140,
+    "region": "Tangshan, China",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "~7.6"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "242,000 official; est. up to 655,000"
+    },
+    "overview": "Striking a heavily industrial city in the middle of the night with virtually no warning, the quake leveled Tangshan almost entirely before residents could react.",
+    "fact": "It remains one of the deadliest earthquakes of the 20th century, and occurred just weeks before the death of Mao Zedong."
+  },
+  {
+    "id": "kobe1995",
+    "name": "Great Hanshin Earthquake",
+    "cat": "earthquake",
+    "year": 1995,
+    "date": "January 17, 1995",
+    "lat": 34.7,
+    "lon": 135.2,
+    "x": 876,
+    "y": 154,
+    "region": "Kobe, Japan",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "6.9 Mw"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "6,434"
+    },
+    "overview": "The quake struck one of the most earthquake-prepared nations on Earth, and still exposed critical gaps — collapsed elevated highways and widespread fires among them.",
+    "fact": "The disaster led to a major overhaul of Japanese seismic building codes and disaster-response planning still referenced today."
+  },
+  {
+    "id": "maule2010",
+    "name": "Maule Earthquake",
+    "cat": "earthquake",
+    "year": 2010,
+    "date": "February 27, 2010",
+    "lat": -36.1,
+    "lon": -72.9,
+    "x": 298,
+    "y": 350,
+    "region": "Maule Region, Chile",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "8.8 Mw"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~525"
+    },
+    "overview": "One of the largest earthquakes ever recorded ruptured a long stretch of the Chile subduction zone and triggered a destructive tsunami along the coast.",
+    "fact": "The shift in mass is estimated to have shortened the length of an Earth day by about 1.26 microseconds."
+  },
+  {
+    "id": "mexicocity1985",
+    "name": "Mexico City Earthquake",
+    "cat": "earthquake",
+    "year": 1985,
+    "date": "September 19, 1985",
+    "lat": 18.4,
+    "lon": -102.4,
+    "x": 216,
+    "y": 199,
+    "region": "Michoacán coast / Mexico City",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "8.0 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "5,000–10,000+"
+    },
+    "overview": "Though the epicenter lay 350 km from the capital, the soft, ancient lakebed soil beneath Mexico City amplified the shaking dramatically, collapsing buildings far from the source.",
+    "fact": "On the exact same calendar date in 2017, another damaging earthquake struck Mexico City — an eerie coincidence residents still talk about."
+  },
+  {
+    "id": "pinatubo1991",
+    "name": "Eruption of Mount Pinatubo",
+    "cat": "volcano",
+    "year": 1991,
+    "date": "June 15, 1991",
+    "lat": 15.13,
+    "lon": 120.35,
+    "x": 834,
+    "y": 208,
+    "region": "Luzon, Philippines",
+    "stat1": {
+      "l": "VEI",
+      "v": "6"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "800+"
+    },
+    "overview": "The second-largest eruption of the 20th century sent ash and gas high into the stratosphere just as a typhoon moved through the region, compounding the disaster.",
+    "fact": "Sulfur aerosols from the eruption cooled global average temperatures by roughly 0.5°C for the following two years."
+  },
+  {
+    "id": "sichuan2008",
+    "name": "Sichuan Earthquake",
+    "cat": "earthquake",
+    "year": 2008,
+    "date": "May 12, 2008",
+    "lat": 31,
+    "lon": 103.4,
+    "x": 787,
+    "y": 164,
+    "region": "Sichuan Province, China",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.9 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~69,000 dead, ~18,000 missing"
+    },
+    "overview": "Rupture along the Longmenshan fault devastated mountainous Sichuan; the collapse of many school buildings prompted intense scrutiny of construction standards.",
+    "fact": "More than 12,000 aftershocks were recorded in the months following the main shock."
+  },
+  {
+    "id": "lisbon1755",
+    "name": "Lisbon Earthquake & Tsunami",
+    "cat": "earthquake",
+    "year": 1755,
+    "date": "November 1, 1755",
+    "lat": 36.5,
+    "lon": -10,
+    "x": 472,
+    "y": 149,
+    "region": "Lisbon, Portugal",
+    "stat1": {
+      "l": "Est. magnitude",
+      "v": "~8.5–9.0"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "12,000–50,000"
+    },
+    "overview": "Striking on All Saints’ Day while churches were full, the quake, the fires, and the tsunami that followed leveled much of Lisbon and reshaped Enlightenment-era thinking about catastrophe and providence.",
+    "fact": "The resulting tsunami crossed the Atlantic Ocean, with waves reported reaching the Caribbean hours later."
+  },
+  {
+    "id": "chinaflood1931",
+    "name": "1931 China Floods",
+    "cat": "flood",
+    "year": 1931,
+    "date": "Summer 1931",
+    "lat": 30.6,
+    "lon": 114.3,
+    "x": 818,
+    "y": 165,
+    "region": "Yangtze & Huai River basins, China",
+    "stat1": {
+      "l": "Category",
+      "v": "Major river flooding"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "1–4 million"
+    },
+    "overview": "Heavy snowmelt, relentless monsoon rain, and a string of cyclones overwhelmed the Yangtze and Huai river systems, inundating an area roughly the size of England.",
+    "fact": "Despite likely being the deadliest natural disaster ever recorded, it remains comparatively little-known outside China."
+  },
+  {
+    "id": "eyjafjallajokull2010",
+    "name": "Eyjafjallajökull Eruption",
+    "cat": "volcano",
+    "year": 2010,
+    "date": "April 2010",
+    "lat": 63.6,
+    "lon": -19.6,
+    "x": 446,
+    "y": 73,
+    "region": "Iceland",
+    "stat1": {
+      "l": "VEI",
+      "v": "4 (moderate)"
+    },
+    "stat2": {
+      "l": "Flights grounded",
+      "v": "~100,000"
+    },
+    "overview": "A modest-sized eruption produced an enormous, fine volcanic ash plume that drifted over Europe, grounding air travel across the continent for days out of caution over jet engine damage.",
+    "fact": "The volcano’s name became a global tongue-twister, sending news anchors everywhere scrambling for pronunciation guides."
+  },
+  {
+    "id": "nyiragongo2002",
+    "name": "Eruption of Nyiragongo",
+    "cat": "volcano",
+    "year": 2002,
+    "date": "January 17, 2002",
+    "lat": -1.52,
+    "lon": 29.25,
+    "x": 581,
+    "y": 254,
+    "region": "Goma, DR Congo",
+    "stat1": {
+      "l": "Lava speed",
+      "v": "up to 60 km/h"
+    },
+    "stat2": {
+      "l": "Displaced",
+      "v": "~250,000"
+    },
+    "overview": "Fast-moving lava flows poured down the volcano’s slopes and through the city of Goma, destroying a large portion of it and sending hundreds of thousands fleeing across the border.",
+    "fact": "Nyiragongo holds one of the largest and most persistent lava lakes on Earth, simmering in its crater between eruptions."
+  },
+  {
+    "id": "ausbushfires2019",
+    "name": "Black Summer Bushfires",
+    "cat": "wildfire",
+    "year": 2019,
+    "date": "2019–2020 fire season",
+    "lat": -35.3,
+    "lon": 149.1,
+    "x": 914,
+    "y": 348,
+    "region": "New South Wales & Victoria, Australia",
+    "stat1": {
+      "l": "Area burned",
+      "v": "~18.6 million hectares"
+    },
+    "stat2": {
+      "l": "Direct lives lost",
+      "v": "33"
+    },
+    "overview": "Record heat and drought fed months of intense, fast-moving bushfires across southeastern Australia, destroying thousands of homes and an estimated three billion animals affected.",
+    "fact": "Smoke from the fires circled the entire globe and was visible from space, dimming skies as far away as South America."
+  },
+  {
+    "id": "nepal2015",
+    "name": "Gorkha (Nepal) Earthquake",
+    "cat": "earthquake",
+    "year": 2015,
+    "date": "April 25, 2015",
+    "lat": 28.23,
+    "lon": 84.73,
+    "x": 735,
+    "y": 172,
+    "region": "Gorkha District, Nepal",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.8 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~8,900"
+    },
+    "overview": "A powerful shallow quake tore through central Nepal, flattening villages, damaging heritage sites in Kathmandu, and triggering deadly avalanches on Everest.",
+    "fact": "Tremors were strong enough to trigger deadly avalanches on Mount Everest and are believed to have shifted parts of Kathmandu several feet closer to the epicenter."
+  },
+  {
+    "id": "maria2017",
+    "name": "Hurricane Maria",
+    "cat": "hurricane",
+    "year": 2017,
+    "date": "September 20, 2017",
+    "lat": 18.2,
+    "lon": -66.5,
+    "x": 315,
+    "y": 199,
+    "region": "Puerto Rico",
+    "stat1": {
+      "l": "Category",
+      "v": "4 (at landfall)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~2,975"
+    },
+    "overview": "The strongest storm to hit Puerto Rico in nearly 90 years knocked out the island wide power grid, with some areas left without electricity for close to a year.",
+    "fact": "The official death toll was revised sharply upward months later, after researchers accounted for deaths caused by delayed medical care during the long blackout."
+  },
+  {
+    "id": "palu2018",
+    "name": "Sulawesi Earthquake & Tsunami",
+    "cat": "tsunami",
+    "year": 2018,
+    "date": "September 28, 2018",
+    "lat": -0.18,
+    "lon": 119.85,
+    "x": 833,
+    "y": 251,
+    "region": "Palu, Indonesia",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.5 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~4,340"
+    },
+    "overview": "A shallow strike-slip quake near Palu Bay triggered a local tsunami and, unusually, widespread soil liquefaction that swallowed entire neighborhoods.",
+    "fact": "Some liquefaction-affected ground reportedly flowed for hundreds of meters, carrying homes with it largely intact before they were buried."
+  },
+  {
+    "id": "haiti2021",
+    "name": "Haiti Earthquake",
+    "cat": "earthquake",
+    "year": 2021,
+    "date": "August 14, 2021",
+    "lat": 18.4,
+    "lon": -73.5,
+    "x": 296,
+    "y": 205,
+    "region": "Nippes, Haiti",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.2 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~2,248"
+    },
+    "overview": "Striking the same fault system that devastated Haiti in 2010, this quake hit the country southwestern peninsula while it was still recovering from prior crises.",
+    "fact": "The quake landed just weeks after the assassination of Haiti president, compounding an already severe national crisis."
+  },
+  {
+    "id": "tonga2022",
+    "name": "Hunga Tonga Eruption",
+    "cat": "volcano",
+    "year": 2022,
+    "date": "January 15, 2022",
+    "lat": -20.5,
+    "lon": -175.4,
+    "x": 13,
+    "y": 307,
+    "region": "Tonga, South Pacific",
+    "stat1": {
+      "l": "VEI",
+      "v": "~5-6 (underwater)"
+    },
+    "stat2": {
+      "l": "Direct lives lost",
+      "v": "~6"
+    },
+    "overview": "A submarine volcano exploded with such force it sent a tsunami across the entire Pacific and launched water vapor higher into the atmosphere than any eruption on record.",
+    "fact": "The shockwave circled the Earth multiple times and was detectable on barometers worldwide, even generating a small tsunami as far away as the Caribbean."
+  },
+  {
+    "id": "turkeysyria2023",
+    "name": "Turkey-Syria Earthquake",
+    "cat": "earthquake",
+    "year": 2023,
+    "date": "February 6, 2023",
+    "lat": 37.2,
+    "lon": 37,
+    "x": 603,
+    "y": 147,
+    "region": "Gaziantep, Turkey",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.8 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "55,000-60,000+"
+    },
+    "overview": "A massive rupture near the Turkey-Syria border, followed hours later by a second major quake nearby, collapsed tens of thousands of buildings across both countries in one of the deadliest quakes of the century.",
+    "fact": "Investigators later linked much of the death toll to widespread violations of building codes that had been enacted decades earlier but rarely enforced."
+  },
+  {
+    "id": "libya2023",
+    "name": "Libya Floods (Storm Daniel)",
+    "cat": "flood",
+    "year": 2023,
+    "date": "September 2023",
+    "lat": 32.77,
+    "lon": 22.64,
+    "x": 563,
+    "y": 159,
+    "region": "Derna, Libya",
+    "stat1": {
+      "l": "Category",
+      "v": "Dam-collapse flash flood"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "4,000-11,000+"
+    },
+    "overview": "Torrential rain from Storm Daniel overwhelmed two aging dams above the coastal city of Derna; their collapse sent a wall of water through the city center in the middle of the night.",
+    "fact": "Roughly a quarter of the city of Derna is estimated to have been swept away or destroyed in a matter of hours."
+  },
+  {
+    "id": "noto2024",
+    "name": "Noto Peninsula Earthquake",
+    "cat": "earthquake",
+    "year": 2024,
+    "date": "January 1, 2024",
+    "lat": 37.5,
+    "lon": 137.25,
+    "x": 881,
+    "y": 146,
+    "region": "Ishikawa Prefecture, Japan",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.5 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "700+ (incl. indirect)"
+    },
+    "overview": "A New Year Day quake struck the remote Noto Peninsula, triggering a tsunami warning, collapsing older wooden homes, and starting fires that burned through a historic market town.",
+    "fact": "Many of the deaths were later certified as disaster-related indirect fatalities, from evacuation-center conditions and the stress of aftershocks rather than the shaking itself."
+  },
+  {
+    "id": "valencia2024",
+    "name": "Valencia Floods (DANA)",
+    "cat": "flood",
+    "year": 2024,
+    "date": "October 29, 2024",
+    "lat": 39.47,
+    "lon": -0.38,
+    "x": 499,
+    "y": 140,
+    "region": "Valencia, Spain",
+    "stat1": {
+      "l": "Category",
+      "v": "Flash flood (DANA system)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "220+"
+    },
+    "overview": "A slow-moving low-pressure system dumped a year worth of rain on parts of eastern Spain in a matter of hours, sending flash floods through towns south of Valencia city.",
+    "fact": "Many victims were caught in underground parking garages and low-lying streets as water rose faster than warnings could reach them."
+  },
+  {
+    "id": "helene2024",
+    "name": "Hurricane Helene",
+    "cat": "hurricane",
+    "year": 2024,
+    "date": "September 26, 2024",
+    "lat": 30,
+    "lon": -84,
+    "x": 267,
+    "y": 167,
+    "region": "Florida Big Bend & Southeastern USA",
+    "stat1": {
+      "l": "Category",
+      "v": "4 (at landfall)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "230+"
+    },
+    "overview": "After making landfall in Florida, Helene remnants dumped catastrophic rainfall over the Appalachian Mountains, causing some of the worst inland flooding the region has ever recorded.",
+    "fact": "Mountain towns in western North Carolina, far from any coastline, saw among the highest death tolls of the entire storm."
+  },
+  {
+    "id": "myanmar2025",
+    "name": "Myanmar Earthquake",
+    "cat": "earthquake",
+    "year": 2025,
+    "date": "March 28, 2025",
+    "lat": 22,
+    "lon": 96,
+    "x": 767,
+    "y": 189,
+    "region": "Sagaing-Mandalay, Myanmar",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.7 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "5,400+"
+    },
+    "overview": "A shallow strike-slip rupture along the Sagaing Fault devastated central Myanmar, collapsing high-rise construction as far away as Bangkok and becoming the deadliest earthquake of 2025.",
+    "fact": "Tremors were strong enough to crack open a rooftop swimming pool and collapse an under-construction skyscraper in Bangkok, over 600 miles from the epicenter."
+  },
+  {
+    "id": "kamchatka2025",
+    "name": "Kamchatka Earthquake",
+    "cat": "earthquake",
+    "year": 2025,
+    "date": "July 30, 2025",
+    "lat": 52.5,
+    "lon": 160.3,
+    "x": 945,
+    "y": 104,
+    "region": "Kamchatka Peninsula, Russia",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "8.8 Mw"
+    },
+    "stat2": {
+      "l": "Direct lives lost",
+      "v": "Low (remote region)"
+    },
+    "overview": "One of the strongest earthquakes ever instrumentally recorded struck off Russia far east coast, sending tsunami warnings around the entire Pacific Rim.",
+    "fact": "It was the sixth-largest earthquake ever recorded by modern seismometers, yet caused comparatively few direct casualties thanks to the region low population density."
+  },
+  {
+    "id": "zhouqu2010",
+    "name": "Zhouqu Landslide",
+    "cat": "landslide",
+    "year": 2010,
+    "date": "August 8, 2010",
+    "lat": 33.7,
+    "lon": 104.5,
+    "x": 790,
+    "y": 156,
+    "region": "Zhouqu County, Gansu, China",
+    "stat1": {
+      "l": "Category",
+      "v": "Debris flow / mudslide"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~1,500"
+    },
+    "overview": "Torrential rain sent a wall of mud, rock, and water down a narrow valley and straight through the county seat while most residents were asleep, burying a large part of the town in minutes.",
+    "fact": "The debris flow was made worse by loose soil left over from a major 2008 earthquake in the same mountain region, which had destabilized the slopes above the town."
+  },
+  {
+    "id": "yungay1970",
+    "name": "Huascarán Avalanche (Yungay Tragedy)",
+    "cat": "avalanche",
+    "year": 1970,
+    "date": "May 31, 1970",
+    "lat": -9.07,
+    "lon": -77.6,
+    "x": 284,
+    "y": 275,
+    "region": "Yungay, Peru",
+    "stat1": {
+      "l": "Category",
+      "v": "Rock & ice avalanche"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~20,000"
+    },
+    "overview": "A large earthquake off the Peruvian coast shook loose a slab of glacial ice and rock high on Huascarán mountain; it grew into a roaring avalanche that buried the entire town of Yungay beneath it.",
+    "fact": "A small group of residents survived by sprinting to high ground in a cemetery on a hill overlooking town — one of the only landmarks left visible afterward."
+  },
+  {
+    "id": "guatemala2010",
+    "name": "Guatemala City Sinkhole",
+    "cat": "sinkhole",
+    "year": 2010,
+    "date": "May 30, 2010",
+    "lat": 14.63,
+    "lon": -90.51,
+    "x": 249,
+    "y": 209,
+    "region": "Guatemala City, Guatemala",
+    "stat1": {
+      "l": "Depth",
+      "v": "~90 m (300 ft)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "3"
+    },
+    "overview": "Heavy rain from a tropical storm combined with a ruptured underground pipe to dissolve the soft volcanic soil beneath a factory, opening a near-perfectly cylindrical pit that swallowed the building whole.",
+    "fact": "The hole was so geometrically clean that photos of it circulated worldwide, with many viewers assuming the image had been digitally altered."
+  },
+  {
+    "id": "haiyan2013",
+    "name": "Typhoon Haiyan (Yolanda)",
+    "cat": "typhoon",
+    "year": 2013,
+    "date": "November 8, 2013",
+    "lat": 11.24,
+    "lon": 125,
+    "x": 847,
+    "y": 219,
+    "region": "Tacloban, Philippines",
+    "stat1": {
+      "l": "Peak winds",
+      "v": "~315 km/h (195 mph)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~6,300+"
+    },
+    "overview": "One of the strongest tropical cyclones ever to make landfall drove a storm surge several meters high into the coastal city of Tacloban, flattening entire neighborhoods within hours.",
+    "fact": "Its sustained winds were strong enough that meteorologists debated whether existing intensity scales could even adequately classify the storm."
+  },
+  {
+    "id": "joplin2011",
+    "name": "Joplin Tornado",
+    "cat": "tornado",
+    "year": 2011,
+    "date": "May 22, 2011",
+    "lat": 37.08,
+    "lon": -94.51,
+    "x": 238,
+    "y": 147,
+    "region": "Joplin, Missouri, USA",
+    "stat1": {
+      "l": "Rating",
+      "v": "EF5"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "158"
+    },
+    "overview": "A mile-wide tornado cut a direct path through the middle of Joplin, destroying roughly a third of the city — including a hospital — in under 40 minutes.",
+    "fact": "It remains the single deadliest tornado in the US since official record-keeping began in 1950."
+  },
+  {
+    "id": "derecho2020",
+    "name": "Midwest Derecho",
+    "cat": "severeThunderstorm",
+    "year": 2020,
+    "date": "August 10, 2020",
+    "lat": 41.6,
+    "lon": -93.6,
+    "x": 240,
+    "y": 134,
+    "region": "Iowa, USA",
+    "stat1": {
+      "l": "Peak winds",
+      "v": "~225 km/h (140 mph)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "4"
+    },
+    "overview": "A single fast-moving line of severe thunderstorms tore across the Midwest for over 1,000 km, flattening millions of acres of corn and soybean crops in what became one of the costliest thunderstorm events in US history.",
+    "fact": "A derecho packs winds comparable to a hurricane, but delivers them along a straight-line path rather than a spinning vortex."
+  },
+  {
+    "id": "blizzard1888",
+    "name": "Great Blizzard of 1888",
+    "cat": "blizzard",
+    "year": 1888,
+    "date": "March 11–14, 1888",
+    "lat": 40.7,
+    "lon": -74,
+    "x": 294,
+    "y": 137,
+    "region": "Northeastern United States",
+    "stat1": {
+      "l": "Snowfall",
+      "v": "up to 1.3 m (50 in)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "400–800"
+    },
+    "overview": "An unexpected late-winter storm buried the US Northeast under massive snowdrifts, stranding trains, cutting off telegraph lines, and trapping New Yorkers indoors for days.",
+    "fact": "The chaos it caused is credited with helping push New York City to move its telegraph and power lines underground, and to eventually build its subway system."
+  },
+  {
+    "id": "sydneyhail1999",
+    "name": "Sydney Hailstorm",
+    "cat": "hailstorm",
+    "year": 1999,
+    "date": "April 14, 1999",
+    "lat": -33.87,
+    "lon": 151.21,
+    "x": 920,
+    "y": 344,
+    "region": "Sydney, Australia",
+    "stat1": {
+      "l": "Hail size",
+      "v": "up to 9 cm"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "1"
+    },
+    "overview": "A supercell thunderstorm dumped enormous hailstones across eastern Sydney, damaging tens of thousands of homes, cars, and aircraft in what became the costliest natural disaster in Australian history at the time.",
+    "fact": "Insurers processed more than 1.7 million individual claims from this single afternoon storm."
+  },
+  {
+    "id": "icestorm1998",
+    "name": "North American Ice Storm",
+    "cat": "icestorm",
+    "year": 1998,
+    "date": "January 4–10, 1998",
+    "lat": 45.5,
+    "lon": -73.6,
+    "x": 296,
+    "y": 124,
+    "region": "Quebec & Ontario, Canada; New England, USA",
+    "stat1": {
+      "l": "Ice accretion",
+      "v": "up to 10 cm"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~35"
+    },
+    "overview": "Days of freezing rain coated power lines and trees in thick ice, collapsing thousands of transmission towers and leaving millions without electricity in the middle of a Canadian winter.",
+    "fact": "Some rural areas of Quebec went without power for over a month, in what remains the province’s largest peacetime deployment of the military."
+  },
+  {
+    "id": "blacksunday1935",
+    "name": "Black Sunday Dust Storm",
+    "cat": "duststorm",
+    "year": 1935,
+    "date": "April 14, 1935",
+    "lat": 36,
+    "lon": -101,
+    "x": 219,
+    "y": 150,
+    "region": "Texas & Oklahoma Panhandles, USA",
+    "stat1": {
+      "l": "Category",
+      "v": "Dust Bowl storm"
+    },
+    "stat2": {
+      "l": "Regional impact",
+      "v": "Millions of tons of topsoil lost"
+    },
+    "overview": "The worst single storm of the Dust Bowl era rolled across the southern Plains as a mile-high black wall of dust, turning day to night and burying farms already devastated by years of drought.",
+    "fact": "The term \"Dust Bowl\" was reportedly coined by a journalist describing this exact storm as it swept over him."
+  },
+  {
+    "id": "eafrica2011",
+    "name": "East Africa Drought & Famine",
+    "cat": "drought",
+    "year": 2011,
+    "date": "2010–2011",
+    "lat": 2,
+    "lon": 45.3,
+    "region": "Somalia & the Horn of Africa",
+    "x": 626,
+    "y": 244,
+    "stat1": {
+      "l": "Category",
+      "v": "Severe multi-season drought"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~260,000"
+    },
+    "overview": "Two consecutive failed rainy seasons collapsed crops and livestock across the Horn of Africa, tipping the region into a famine that the UN formally declared in parts of Somalia.",
+    "fact": "More than half of the estimated deaths were children under five, making it one of the deadliest famines of the 21st century so far."
+  },
+  {
+    "id": "euheat2003",
+    "name": "European Heatwave",
+    "cat": "heatwave",
+    "year": 2003,
+    "date": "Summer 2003",
+    "lat": 48.85,
+    "lon": 2.35,
+    "x": 507,
+    "y": 114,
+    "region": "France & Western Europe",
+    "stat1": {
+      "l": "Peak temps",
+      "v": "40°C+ (104°F+)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~70,000 across Europe"
+    },
+    "overview": "Weeks of record-breaking heat overwhelmed hospitals and homes across a continent unused to such extremes, with France alone recording tens of thousands of heat-related deaths.",
+    "fact": "The disaster prompted France to build a national heatwave early-warning system and a registry to check on isolated elderly residents during future heat events."
+  },
+  {
+    "id": "uri2021",
+    "name": "Winter Storm Uri",
+    "cat": "coldwave",
+    "year": 2021,
+    "date": "February 13–17, 2021",
+    "lat": 30.27,
+    "lon": -97.74,
+    "x": 229,
+    "y": 166,
+    "region": "Texas, USA",
+    "stat1": {
+      "l": "Category",
+      "v": "Extreme cold snap"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "246+ (some estimates higher)"
+    },
+    "overview": "An unprecedented cold snap froze natural gas infrastructure and overwhelmed the Texas power grid, leaving millions without electricity or heat for days during sub-zero temperatures.",
+    "fact": "Some Texans saw electricity bills spike into the thousands of dollars after the storm exposed gaps in the state’s deregulated energy market."
+  },
+  {
+    "id": "shaanxi1556",
+    "name": "Shaanxi Earthquake",
+    "cat": "earthquake",
+    "year": 1556,
+    "date": "January 23, 1556",
+    "lat": 34.5,
+    "lon": 109.7,
+    "x": 805,
+    "y": 154,
+    "region": "Huaxian, Shaanxi, China",
+    "stat1": {
+      "l": "Est. magnitude",
+      "v": "~8.0"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~830,000"
+    },
+    "overview": "Widely considered the deadliest earthquake ever recorded, the shaking collapsed loess cave dwellings across a densely populated region, burying entire communities where people lived.",
+    "fact": "Many victims lived in cave-like dwellings carved into soft loess cliffs, which are especially prone to sudden collapse during shaking."
+  },
+  {
+    "id": "kanto1923",
+    "name": "Great Kantō Earthquake",
+    "cat": "earthquake",
+    "year": 1923,
+    "date": "September 1, 1923",
+    "lat": 35.3,
+    "lon": 139.5,
+    "x": 888,
+    "y": 152,
+    "region": "Tokyo & Yokohama, Japan",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.9 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "105,000–142,000"
+    },
+    "overview": "The quake struck around lunchtime when many cooking fires were burning, and the resulting firestorms across Tokyo and Yokohama caused far more destruction than the shaking itself.",
+    "fact": "A single firestorm in an open field where tens of thousands had taken shelter is believed to have killed nearly 38,000 people in a matter of hours."
+  },
+  {
+    "id": "izmit1999",
+    "name": "İzmit Earthquake",
+    "cat": "earthquake",
+    "year": 1999,
+    "date": "August 17, 1999",
+    "lat": 40.7,
+    "lon": 29.9,
+    "x": 583,
+    "y": 137,
+    "region": "Kocaeli Province, Turkey",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.6 Mw"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "17,000–45,000"
+    },
+    "overview": "Poorly enforced building codes across the densely populated Kocaeli region turned a strong but not extraordinary quake into a mass-casualty event.",
+    "fact": "The disaster spurred major reforms to Turkish building regulations and earthquake insurance — reforms whose limits were tragically exposed again in 2023."
+  },
+  {
+    "id": "chichi1999",
+    "name": "Chi-Chi Earthquake",
+    "cat": "earthquake",
+    "year": 1999,
+    "date": "September 21, 1999",
+    "lat": 23.85,
+    "lon": 120.8,
+    "x": 836,
+    "y": 184,
+    "region": "Nantou County, Taiwan",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.6–7.7 Mw"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~2,400"
+    },
+    "overview": "Rupture along the Chelungpu fault thrust the ground upward by several meters in places, visibly warping roads and a school running track that’s now preserved as a memorial.",
+    "fact": "The fault scarp raised a riverbed near Shigang so abruptly that it created an instant waterfall over 6 meters high."
+  },
+  {
+    "id": "morocco2023",
+    "name": "Al Haouz (Morocco) Earthquake",
+    "cat": "earthquake",
+    "year": 2023,
+    "date": "September 8, 2023",
+    "lat": 31.1,
+    "lon": -8.4,
+    "x": 477,
+    "y": 164,
+    "region": "High Atlas Mountains, Morocco",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "6.8 Mw"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "2,900+"
+    },
+    "overview": "A relatively moderate quake caused outsized destruction in remote Atlas Mountain villages built largely of stone and mud brick, hampering rescue efforts for days.",
+    "fact": "It was the strongest earthquake recorded in Morocco in over a century."
+  },
+  {
+    "id": "lituya1958",
+    "name": "Lituya Bay Megatsunami",
+    "cat": "tsunami",
+    "year": 1958,
+    "date": "July 9, 1958",
+    "lat": 58.6,
+    "lon": -137.6,
+    "x": 118,
+    "y": 87,
+    "region": "Lituya Bay, Alaska, USA",
+    "stat1": {
+      "l": "Max wave height",
+      "v": "~524 m (1,720 ft)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "5"
+    },
+    "overview": "An earthquake shook loose a massive rockslide into a narrow fjord, displacing water into the tallest wave ever reliably documented and stripping trees off surrounding slopes hundreds of meters up.",
+    "fact": "Two fishing boats anchored in the bay were literally carried over a forested spit by the wave — one survived the ride."
+  },
+  {
+    "id": "aleutian1946",
+    "name": "Aleutian Islands Tsunami",
+    "cat": "tsunami",
+    "year": 1946,
+    "date": "April 1, 1946",
+    "lat": 19.7,
+    "lon": -155.1,
+    "x": 69,
+    "y": 195,
+    "region": "Hilo, Hawaii, USA",
+    "stat1": {
+      "l": "Wave height",
+      "v": "up to ~14 m at Hilo"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "165–173"
+    },
+    "overview": "A tsunami generated near Alaska crossed the open Pacific and slammed into Hilo, Hawaii, with no warning system in place to alert residents.",
+    "fact": "This disaster directly led to the creation of the Pacific Tsunami Warning System, still in operation today."
+  },
+  {
+    "id": "okushiri1993",
+    "name": "Hokkaidō Nansei-oki Tsunami",
+    "cat": "tsunami",
+    "year": 1993,
+    "date": "July 12, 1993",
+    "lat": 42.2,
+    "lon": 139.4,
+    "x": 887,
+    "y": 133,
+    "region": "Okushiri Island, Japan",
+    "stat1": {
+      "l": "Magnitude",
+      "v": "7.8 Mw"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~230"
+    },
+    "overview": "The tsunami reached Okushiri Island in as little as two to five minutes, leaving almost no time to evacuate before waves over 30 meters high struck in places.",
+    "fact": "The extremely short warning time from this event pushed Japan to dramatically speed up its tsunami alert systems."
+  },
+  {
+    "id": "anakkrakatau2018",
+    "name": "Anak Krakatau Tsunami",
+    "cat": "tsunami",
+    "year": 2018,
+    "date": "December 22, 2018",
+    "lat": -6.1,
+    "lon": 105.4,
+    "x": 798,
+    "y": 272,
+    "region": "Sunda Strait, Indonesia",
+    "stat1": {
+      "l": "Cause",
+      "v": "Volcanic flank collapse"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~430"
+    },
+    "overview": "Part of the young volcanic island Anak Krakatau — grown from the caldera left by the 1883 eruption — suddenly collapsed into the sea, sending an unannounced tsunami into nearby coastlines at night.",
+    "fact": "Because the trigger was a landslide rather than an earthquake, existing tsunami warning systems didn’t detect it in time."
+  },
+  {
+    "id": "ruiz1985",
+    "name": "Nevado del Ruiz Eruption",
+    "cat": "volcano",
+    "year": 1985,
+    "date": "November 13, 1985",
+    "lat": 4.9,
+    "lon": -75.32,
+    "x": 291,
+    "y": 236,
+    "region": "Armero, Colombia",
+    "stat1": {
+      "l": "VEI",
+      "v": "3 (small eruption)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~23,000–25,000"
+    },
+    "overview": "A modest eruption melted glacial ice atop the volcano, sending massive mudflows down river valleys that buried the town of Armero while most residents slept.",
+    "fact": "Scientists had warned of the lahar risk weeks earlier, making it one of history’s starkest examples of a preventable volcanic disaster."
+  },
+  {
+    "id": "kilauea1790",
+    "name": "Kīlauea Eruption (1790)",
+    "cat": "volcano",
+    "year": 1790,
+    "date": "c. November 1790",
+    "lat": 19.4,
+    "lon": -155.3,
+    "x": 69,
+    "y": 196,
+    "region": "Kīlauea, Hawaii, USA",
+    "stat1": {
+      "l": "Type",
+      "v": "Phreatic (steam) explosion"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~400–5,400"
+    },
+    "overview": "A sudden explosive burst caught part of a Hawaiian army crossing the volcano’s summit, remaining the deadliest volcanic event in what is now United States territory.",
+    "fact": "Footprints preserved in the hardened ash — thought to belong to some of the victims — can still be seen near the site today."
+  },
+  {
+    "id": "kilauea2018",
+    "name": "Kīlauea Eruption (2018)",
+    "cat": "volcano",
+    "year": 2018,
+    "date": "May–August 2018",
+    "lat": 19.46,
+    "lon": -154.9,
+    "x": 72,
+    "y": 199,
+    "region": "Leilani Estates, Hawaii, USA",
+    "stat1": {
+      "l": "Type",
+      "v": "Rift zone lava eruption"
+    },
+    "stat2": {
+      "l": "Homes destroyed",
+      "v": "700+"
+    },
+    "overview": "Months of slow-moving lava fountains and flows from Kīlauea’s lower East Rift Zone consumed entire neighborhoods, though careful evacuation meant no direct deaths.",
+    "fact": "The eruption also created a new black-sand beach where lava met the ocean."
+  },
+  {
+    "id": "etna1669",
+    "name": "Mount Etna Eruption (1669)",
+    "cat": "volcano",
+    "year": 1669,
+    "date": "March–July 1669",
+    "lat": 37.75,
+    "lon": 15,
+    "x": 542,
+    "y": 145,
+    "region": "Catania, Sicily, Italy",
+    "stat1": {
+      "l": "Duration",
+      "v": "~4 months"
+    },
+    "stat2": {
+      "l": "Homes destroyed",
+      "v": "Much of Catania"
+    },
+    "overview": "A lava flow advanced for weeks, eventually breaching Catania’s city walls; because it moved slowly, most residents were able to flee, keeping direct deaths comparatively low.",
+    "fact": "Some Catanians reportedly tried to divert the flow by digging channels — one of the earliest recorded attempts at deliberate lava diversion."
+  },
+  {
+    "id": "etna1992",
+    "name": "Mount Etna Eruption (1992)",
+    "cat": "volcano",
+    "year": 1992,
+    "date": "December 1991 – April 1992",
+    "lat": 37.75,
+    "lon": 15.02,
+    "x": 546,
+    "y": 148,
+    "region": "Zafferana Etnea, Sicily, Italy",
+    "stat1": {
+      "l": "Type",
+      "v": "Effusive lava flow"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "0"
+    },
+    "overview": "As lava threatened the town of Zafferana, engineers used explosives and concrete barriers to redirect the flow away from homes — one of the first large-scale attempts to actively steer an eruption.",
+    "fact": "The intervention is still studied as a case study in volcanic-hazard mitigation."
+  },
+  {
+    "id": "unzen1991",
+    "name": "Mount Unzen Eruption",
+    "cat": "volcano",
+    "year": 1991,
+    "date": "June 3, 1991",
+    "lat": 32.75,
+    "lon": 130.3,
+    "x": 862,
+    "y": 159,
+    "region": "Nagasaki Prefecture, Japan",
+    "stat1": {
+      "l": "Type",
+      "v": "Pyroclastic flow"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "43"
+    },
+    "overview": "A sudden pyroclastic flow overran a group of journalists, evacuees, and volcanologists — including renowned scientists Katia and Maurice Krafft — who were observing from what they believed was a safe distance.",
+    "fact": "The Kraffts’ dramatic footage of eruptions worldwide, filmed over decades, is still used in volcanology education today."
+  },
+  {
+    "id": "merapi2010",
+    "name": "Mount Merapi Eruption",
+    "cat": "volcano",
+    "year": 2010,
+    "date": "October–November 2010",
+    "lat": -7.54,
+    "lon": 110.44,
+    "x": 807,
+    "y": 271,
+    "region": "Yogyakarta, Indonesia",
+    "stat1": {
+      "l": "VEI",
+      "v": "4"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "350+"
+    },
+    "overview": "One of the world’s most active volcanoes produced its largest eruption in over a century, forcing the evacuation of hundreds of thousands from its slopes.",
+    "fact": "An elderly caretaker known as the mountain’s spiritual gatekeeper refused to leave and died in the eruption, becoming a symbol of the disaster."
+  },
+  {
+    "id": "fuego2018",
+    "name": "Fuego Eruption",
+    "cat": "volcano",
+    "year": 2018,
+    "date": "June 3, 2018",
+    "lat": 14.47,
+    "lon": -90.88,
+    "x": 248,
+    "y": 210,
+    "region": "Escuintla, Guatemala",
+    "stat1": {
+      "l": "Type",
+      "v": "Pyroclastic flow"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "200+ (many missing)"
+    },
+    "overview": "Fast-moving pyroclastic flows raced down river channels and buried villages with almost no warning, one of the deadliest eruptions in Guatemala’s history.",
+    "fact": "Some communities were buried so deeply and suddenly that authorities later declared the site a mass grave rather than attempting full excavation."
+  },
+  {
+    "id": "ontake2014",
+    "name": "Mount Ontake Eruption",
+    "cat": "volcano",
+    "year": 2014,
+    "date": "September 27, 2014",
+    "lat": 35.89,
+    "lon": 137.48,
+    "x": 882,
+    "y": 150,
+    "region": "Nagano/Gifu, Japan",
+    "stat1": {
+      "l": "Type",
+      "v": "Sudden phreatic eruption"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "63"
+    },
+    "overview": "A popular hiking peak erupted without the usual warning signs on a busy autumn weekend, catching climbers at the summit completely by surprise.",
+    "fact": "It remains Japan’s deadliest volcanic disaster since 1926, and prompted new hiker-alert systems on active volcanoes nationwide."
+  },
+  {
+    "id": "soufriere2021",
+    "name": "La Soufrière Eruption",
+    "cat": "volcano",
+    "year": 2021,
+    "date": "April 2021",
+    "lat": 13.33,
+    "lon": -61.18,
+    "x": 330,
+    "y": 213,
+    "region": "Saint Vincent, Caribbean",
+    "stat1": {
+      "l": "VEI",
+      "v": "4"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "0 reported"
+    },
+    "overview": "A series of explosive eruptions forced the evacuation of roughly 20,000 people from the northern part of the island, coordinated across a region already stretched thin by the pandemic.",
+    "fact": "Ashfall was heavy enough to be detected by satellites drifting hundreds of kilometers across the Caribbean."
+  },
+  {
+    "id": "galunggung1982",
+    "name": "Galunggung Eruption",
+    "cat": "volcano",
+    "year": 1982,
+    "date": "1982–1983",
+    "lat": -7.25,
+    "lon": 108.05,
+    "x": 800,
+    "y": 270,
+    "region": "West Java, Indonesia",
+    "stat1": {
+      "l": "VEI",
+      "v": "3–4"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~68"
+    },
+    "overview": "A months-long eruption sent ash plumes across busy flight paths over Indonesia, with dramatic consequences for aircraft passing through unseen.",
+    "fact": "A British Airways 747 accidentally flew through the ash cloud and lost power in all four engines; the crew managed to restart them and land safely, and the incident reshaped global volcanic-ash flight safety rules."
+  },
+  {
+    "id": "vajont1963",
+    "name": "Vajont Dam Landslide",
+    "cat": "landslide",
+    "year": 1963,
+    "date": "October 9, 1963",
+    "lat": 46.27,
+    "lon": 12.33,
+    "x": 534,
+    "y": 122,
+    "region": "Vajont, Italy",
+    "stat1": {
+      "l": "Type",
+      "v": "Rockslide into reservoir"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~2,000"
+    },
+    "overview": "A mountainside slid into a newly filled reservoir, displacing a wave that overtopped the dam by hundreds of feet and wiped out villages downstream — the dam itself barely moved.",
+    "fact": "Geologists had flagged the slope’s instability before the reservoir was even filled, making this another textbook case of an ignored warning."
+  },
+  {
+    "id": "guinsaugon2006",
+    "name": "Guinsaugon Landslide",
+    "cat": "landslide",
+    "year": 2006,
+    "date": "February 17, 2006",
+    "lat": 10.35,
+    "lon": 125.13,
+    "x": 848,
+    "y": 221,
+    "region": "Southern Leyte, Philippines",
+    "stat1": {
+      "l": "Trigger",
+      "v": "Heavy rainfall"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~1,100"
+    },
+    "overview": "Days of rain saturated a hillside above the village of Guinsaugon, which collapsed and buried the community — including an elementary school full of students — in minutes.",
+    "fact": "Rescue efforts were hampered by the sheer depth of mud and debris, some of it dozens of meters thick."
+  },
+  {
+    "id": "oso2014",
+    "name": "Oso Mudslide",
+    "cat": "landslide",
+    "year": 2014,
+    "date": "March 22, 2014",
+    "lat": 48.27,
+    "lon": -121.84,
+    "x": 162,
+    "y": 116,
+    "region": "Snohomish County, Washington, USA",
+    "stat1": {
+      "l": "Trigger",
+      "v": "Saturated hillside"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "43"
+    },
+    "overview": "A rain-saturated hillside collapsed suddenly onto a rural neighborhood along the Stillaguamish River, one of the deadliest landslides in US history.",
+    "fact": "The slope had a documented history of smaller slides going back decades before the catastrophic 2014 collapse."
+  },
+  {
+    "id": "freetown2017",
+    "name": "Freetown Mudslide",
+    "cat": "landslide",
+    "year": 2017,
+    "date": "August 14, 2017",
+    "lat": 8.46,
+    "lon": -13.23,
+    "x": 463,
+    "y": 227,
+    "region": "Regent, Sierra Leone",
+    "stat1": {
+      "l": "Trigger",
+      "v": "Torrential rain"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~1,100"
+    },
+    "overview": "Deforestation on the slopes above Freetown left hillsides unstable, and after unusually intense rain a mudslide swept through informal settlements at the base of Sugar Loaf Mountain.",
+    "fact": "Much of the disaster response relied on volunteers digging by hand, as the country had few heavy machines available for the terrain."
+  },
+  {
+    "id": "whitefriday1916",
+    "name": "White Friday Avalanches",
+    "cat": "avalanche",
+    "year": 1916,
+    "date": "December 13, 1916",
+    "lat": 46.5,
+    "lon": 11.8,
+    "x": 533,
+    "y": 121,
+    "region": "Dolomites, Italian–Austrian Front",
+    "stat1": {
+      "l": "Context",
+      "v": "World War I front line"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~10,000"
+    },
+    "overview": "Heavy snowfall combined with artillery fire triggered avalanches across the Alpine front in a single day, burying soldiers from both sides in their mountain positions.",
+    "fact": "Historians estimate more soldiers died in Alpine avalanches during the war than in some of its individual battles."
+  },
+  {
+    "id": "huascaran1962",
+    "name": "Huascarán Avalanche (1962)",
+    "cat": "avalanche",
+    "year": 1962,
+    "date": "January 10, 1962",
+    "lat": -9.12,
+    "lon": -77.6,
+    "x": 284,
+    "y": 275,
+    "region": "Ranrahirca, Peru",
+    "stat1": {
+      "l": "Type",
+      "v": "Ice & debris avalanche"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~4,000–5,000"
+    },
+    "overview": "A chunk of glacial ice broke free from the same peak that would unleash an even larger disaster eight years later, burying the town of Ranrahirca below.",
+    "fact": "Huascarán is Peru’s tallest mountain, and this event was an eerie preview of the far deadlier 1970 collapse from the same slope."
+  },
+  {
+    "id": "galtur1999",
+    "name": "Galtür Avalanche",
+    "cat": "avalanche",
+    "year": 1999,
+    "date": "February 23, 1999",
+    "lat": 46.97,
+    "lon": 10.18,
+    "x": 528,
+    "y": 120,
+    "region": "Galtür, Austria",
+    "stat1": {
+      "l": "Type",
+      "v": "Powder avalanche"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "31"
+    },
+    "overview": "A massive avalanche struck the alpine village of Galtür directly, an area long considered safe from major slides, trapping the town under snow drifts many meters deep.",
+    "fact": "The disaster led Austria to overhaul its avalanche-hazard mapping for villages once assumed to be out of reach."
+  },
+  {
+    "id": "everestavalanche2015",
+    "name": "Everest Base Camp Avalanche",
+    "cat": "avalanche",
+    "year": 2015,
+    "date": "April 25, 2015",
+    "lat": 28,
+    "lon": 86.85,
+    "x": 741,
+    "y": 172,
+    "region": "Mount Everest, Nepal",
+    "stat1": {
+      "l": "Trigger",
+      "v": "Gorkha earthquake"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "19"
+    },
+    "overview": "The same earthquake that devastated Kathmandu shook loose an avalanche that swept through Everest Base Camp during the peak spring climbing season.",
+    "fact": "It became the deadliest single day in Mount Everest’s climbing history at the time."
+  },
+  {
+    "id": "winterpark1981",
+    "name": "Winter Park Sinkhole",
+    "cat": "sinkhole",
+    "year": 1981,
+    "date": "May 1981",
+    "lat": 28.6,
+    "lon": -81.35,
+    "x": 274,
+    "y": 171,
+    "region": "Winter Park, Florida, USA",
+    "stat1": {
+      "l": "Diameter",
+      "v": "~100 m"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "0"
+    },
+    "overview": "Over a couple of days, a sinkhole opened and gradually swallowed a house, several cars, part of a municipal pool, and a chunk of a road, growing before onlookers’ eyes.",
+    "fact": "Rather than being filled in, the sinkhole was left to become a small lake and remains a local landmark today."
+  },
+  {
+    "id": "guatemala2007",
+    "name": "Guatemala City Sinkhole (2007)",
+    "cat": "sinkhole",
+    "year": 2007,
+    "date": "February 2007",
+    "lat": 14.63,
+    "lon": -90.51,
+    "x": 249,
+    "y": 206,
+    "region": "Guatemala City, Guatemala",
+    "stat1": {
+      "l": "Depth",
+      "v": "~100 m"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~3"
+    },
+    "overview": "A sudden collapse swallowed several homes in a residential neighborhood; investigators traced the cause to a leaking sewage pipe eroding the city’s soft volcanic bedrock from below.",
+    "fact": "The same neighborhood would be struck by an even more dramatic repeat sinkhole just three years later, in 2010."
+  },
+  {
+    "id": "daisetta2008",
+    "name": "Daisetta Sinkhole",
+    "cat": "sinkhole",
+    "year": 2008,
+    "date": "May 2008",
+    "lat": 30.11,
+    "lon": -94.65,
+    "x": 237,
+    "y": 166,
+    "region": "Daisetta, Texas, USA",
+    "stat1": {
+      "l": "Cause",
+      "v": "Collapsed salt dome cavern"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "0"
+    },
+    "overview": "A cavity deep within an underground salt dome gave way, and the ground above rapidly collapsed, swallowing vehicles and oil-field equipment within hours.",
+    "fact": "The sinkhole grew large enough to be clearly visible in satellite imagery within a single day."
+  },
+  {
+    "id": "bayoucorne2012",
+    "name": "Bayou Corne Sinkhole",
+    "cat": "sinkhole",
+    "year": 2012,
+    "date": "August 2012",
+    "lat": 30.02,
+    "lon": -91.13,
+    "x": 247,
+    "y": 167,
+    "region": "Bayou Corne, Louisiana, USA",
+    "stat1": {
+      "l": "Cause",
+      "v": "Collapsed salt cavern"
+    },
+    "stat2": {
+      "l": "Homes evacuated",
+      "v": "~350 residents"
+    },
+    "overview": "An underground salt cavern used for industrial storage collapsed, and the resulting sinkhole steadily grew for years, forcing the permanent evacuation of an entire community.",
+    "fact": "The sinkhole is still monitored today and has swallowed cypress trees whole, some of which now float upright on its surface."
+  },
+  {
+    "id": "bangladesh1991",
+    "name": "1991 Bangladesh Cyclone",
+    "cat": "tropicalCyclone",
+    "year": 1991,
+    "date": "April 29, 1991",
+    "lat": 22.3,
+    "lon": 91.8,
+    "x": 755,
+    "y": 188,
+    "region": "Chittagong, Bangladesh",
+    "stat1": {
+      "l": "Category",
+      "v": "4 (at landfall)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~138,000"
+    },
+    "overview": "Striking nearly the same coastline devastated by the 1970 Bhola Cyclone, this storm showed how much progress had — and hadn’t — been made in coastal early-warning systems.",
+    "fact": "Despite the high toll, improved shelters and warnings are credited with saving hundreds of thousands compared to 1970."
+  },
+  {
+    "id": "nargis2008",
+    "name": "Cyclone Nargis",
+    "cat": "tropicalCyclone",
+    "year": 2008,
+    "date": "May 2, 2008",
+    "lat": 16.1,
+    "lon": 94.8,
+    "x": 763,
+    "y": 205,
+    "region": "Irrawaddy Delta, Myanmar",
+    "stat1": {
+      "l": "Category",
+      "v": "3–4 (at landfall)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~138,000"
+    },
+    "overview": "A storm surge swept far inland across the low-lying, densely farmed Irrawaddy Delta, and the ruling government’s initial reluctance to allow foreign aid delayed relief efforts for weeks.",
+    "fact": "It remains the deadliest natural disaster in Myanmar’s recorded history."
+  },
+  {
+    "id": "idai2019",
+    "name": "Cyclone Idai",
+    "cat": "tropicalCyclone",
+    "year": 2019,
+    "date": "March 2019",
+    "lat": -19.8,
+    "lon": 34.85,
+    "x": 597,
+    "y": 305,
+    "region": "Beira, Mozambique",
+    "stat1": {
+      "l": "Category",
+      "v": "3 (at landfall)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~1,300"
+    },
+    "overview": "One of the most destructive cyclones ever to strike southeastern Africa, Idai flooded huge swaths of Mozambique, Zimbabwe, and Malawi, turning entire towns into temporary lakes.",
+    "fact": "Satellite images afterward showed an inland \"sea\" roughly the size of Luxembourg where the storm had flooded the delta."
+  },
+  {
+    "id": "amphan2020",
+    "name": "Cyclone Amphan",
+    "cat": "tropicalCyclone",
+    "year": 2020,
+    "date": "May 2020",
+    "lat": 21.6,
+    "lon": 88.4,
+    "x": 746,
+    "y": 190,
+    "region": "West Bengal, India & Bangladesh",
+    "stat1": {
+      "l": "Category",
+      "v": "2–3 (at landfall)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~128"
+    },
+    "overview": "Amphan became the costliest cyclone ever recorded in the North Indian Ocean, striking during the early COVID-19 pandemic and complicating both evacuation and relief efforts.",
+    "fact": "It rapidly intensified into a super cyclone over the Bay of Bengal, one of the fastest such intensifications on record for the region."
+  },
+  {
+    "id": "tristate1925",
+    "name": "Tri-State Tornado",
+    "cat": "tornado",
+    "year": 1925,
+    "date": "March 18, 1925",
+    "lat": 37.9,
+    "lon": -89.6,
+    "x": 251,
+    "y": 145,
+    "region": "Missouri, Illinois & Indiana, USA",
+    "stat1": {
+      "l": "Track length",
+      "v": "~352 km (219 mi)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~695"
+    },
+    "overview": "The deadliest single tornado in US history stayed on the ground for over three and a half hours, cutting a continuous path through three states with almost no modern warning systems to alert residents.",
+    "fact": "Its forward speed reached an estimated 117 km/h (73 mph) at times — unusually fast for a tornado."
+  },
+  {
+    "id": "daulatpur1989",
+    "name": "Daulatpur–Saturia Tornado",
+    "cat": "tornado",
+    "year": 1989,
+    "date": "April 26, 1989",
+    "lat": 23.9,
+    "lon": 90,
+    "x": 750,
+    "y": 184,
+    "region": "Manikganj District, Bangladesh",
+    "stat1": {
+      "l": "Category",
+      "v": "Est. F3–F4"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~1,300"
+    },
+    "overview": "The deadliest tornado ever recorded worldwide tore through densely populated villages built largely of light materials, which offered almost no protection.",
+    "fact": "Bangladesh’s combination of dense population and flimsy housing makes it uniquely vulnerable to tornado casualties despite tornadoes there being less frequent than in the US."
+  },
+  {
+    "id": "superoutbreak2011",
+    "name": "2011 Super Outbreak",
+    "cat": "tornado",
+    "year": 2011,
+    "date": "April 25–28, 2011",
+    "lat": 33.2,
+    "lon": -87.55,
+    "x": 257,
+    "y": 158,
+    "region": "Tuscaloosa–Birmingham, Alabama, USA",
+    "stat1": {
+      "l": "Tornadoes",
+      "v": "360+ over four days"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~324"
+    },
+    "overview": "The largest tornado outbreak ever recorded swept across the southeastern US, with a single mile-wide EF4 tornado cutting directly through Tuscaloosa and Birmingham.",
+    "fact": "Storm chasers and meteorologists still use this outbreak as a benchmark case for studying how tornado families form along a single squall line."
+  },
+  {
+    "id": "moore2013",
+    "name": "Moore Tornado",
+    "cat": "tornado",
+    "year": 2013,
+    "date": "May 20, 2013",
+    "lat": 35.34,
+    "lon": -97.49,
+    "x": 229,
+    "y": 152,
+    "region": "Moore, Oklahoma, USA",
+    "stat1": {
+      "l": "Rating",
+      "v": "EF5"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "24"
+    },
+    "overview": "An EF5 tornado tore through the Oklahoma City suburb of Moore, flattening two elementary schools and hundreds of homes in an area already struck by major tornadoes in 1999 and 2003.",
+    "fact": "It was the third violent tornado to hit almost the exact same corridor of Moore within 14 years."
+  },
+  {
+    "id": "mitch1998",
+    "name": "Hurricane Mitch",
+    "cat": "hurricane",
+    "year": 1998,
+    "date": "October 1998",
+    "lat": 15,
+    "lon": -86,
+    "x": 261,
+    "y": 208,
+    "region": "Honduras & Nicaragua",
+    "stat1": {
+      "l": "Category",
+      "v": "5 (peak); stalled at landfall"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "11,000–19,000+"
+    },
+    "overview": "Mitch weakened before landfall but then stalled for days over Central America, dumping catastrophic rainfall that triggered landslides and floods across an already fragile region.",
+    "fact": "Some areas of Honduras received nearly two meters of rain in under a week — a multi-year total compressed into days."
+  },
+  {
+    "id": "andrew1992",
+    "name": "Hurricane Andrew",
+    "cat": "hurricane",
+    "year": 1992,
+    "date": "August 24, 1992",
+    "lat": 25.5,
+    "lon": -80.4,
+    "x": 277,
+    "y": 179,
+    "region": "South Florida, USA",
+    "stat1": {
+      "l": "Category",
+      "v": "5 (at landfall)"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "65"
+    },
+    "overview": "A compact but extraordinarily intense hurricane leveled entire subdivisions south of Miami, and for years stood as the costliest hurricane on record.",
+    "fact": "The devastation directly led to a major overhaul of Florida’s building codes for wind resistance."
+  },
+  {
+    "id": "harvey2017",
+    "name": "Hurricane Harvey",
+    "cat": "hurricane",
+    "year": 2017,
+    "date": "August 2017",
+    "lat": 29.76,
+    "lon": -95.37,
+    "x": 235,
+    "y": 167,
+    "region": "Houston, Texas, USA",
+    "stat1": {
+      "l": "Peak rainfall",
+      "v": "~60+ inches (1,500+ mm)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "68–107"
+    },
+    "overview": "Harvey stalled over the Houston metro area for days after landfall, producing the heaviest tropical rainfall ever recorded in the continental US and flooding tens of thousands of homes.",
+    "fact": "The storm dropped an estimated 33 trillion gallons of water over Texas and Louisiana combined."
+  },
+  {
+    "id": "ian2022",
+    "name": "Hurricane Ian",
+    "cat": "hurricane",
+    "year": 2022,
+    "date": "September 28, 2022",
+    "lat": 26.65,
+    "lon": -82,
+    "x": 272,
+    "y": 176,
+    "region": "Southwest Florida, USA",
+    "stat1": {
+      "l": "Category",
+      "v": "4–5 (at landfall)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~150"
+    },
+    "overview": "A powerful storm surge inundated barrier islands and coastal communities in southwest Florida, becoming one of the costliest hurricanes in US history.",
+    "fact": "Some coastal areas saw storm surge over 4.5 meters (15 ft), reshaping entire stretches of the Gulf coastline."
+  },
+  {
+    "id": "nina1975",
+    "name": "Typhoon Nina & Banqiao Dam Failure",
+    "cat": "typhoon",
+    "year": 1975,
+    "date": "August 1975",
+    "lat": 33.1,
+    "lon": 114.1,
+    "x": 817,
+    "y": 158,
+    "region": "Zhumadian, Henan, China",
+    "stat1": {
+      "l": "Cause",
+      "v": "Record rainfall & dam failure"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "170,000–230,000"
+    },
+    "overview": "Record-breaking rainfall from Typhoon Nina overwhelmed the Banqiao Dam and dozens of smaller dams downstream, triggering a chain-reaction collapse that unleashed a wall of water across the region.",
+    "fact": "It is considered one of the deadliest structural-failure disasters in history, and remained little-reported outside China for years afterward."
+  },
+  {
+    "id": "tip1979",
+    "name": "Typhoon Tip",
+    "cat": "typhoon",
+    "year": 1979,
+    "date": "October 1979",
+    "lat": 20,
+    "lon": 135,
+    "x": 875,
+    "y": 194,
+    "region": "Northwest Pacific Ocean",
+    "stat1": {
+      "l": "Diameter",
+      "v": "~2,220 km — largest on record"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~99"
+    },
+    "overview": "Typhoon Tip grew into the largest and most intense tropical cyclone ever measured, with gale-force winds spanning an area roughly the size of the continental United States.",
+    "fact": "Its minimum central pressure of 870 hPa remains the lowest ever recorded for a tropical cyclone anywhere on Earth."
+  },
+  {
+    "id": "yagi2024",
+    "name": "Typhoon Yagi",
+    "cat": "typhoon",
+    "year": 2024,
+    "date": "September 2024",
+    "lat": 21,
+    "lon": 106,
+    "x": 794,
+    "y": 192,
+    "region": "Northern Vietnam",
+    "stat1": {
+      "l": "Category",
+      "v": "4–5 (peak)"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "800+ (regional total)"
+    },
+    "overview": "The strongest typhoon to hit Vietnam in decades tore through the Philippines, southern China, and Vietnam in succession, with catastrophic flooding and landslides following its rains inland.",
+    "fact": "Yagi underwent rapid intensification over unusually warm waters just before landfall, a pattern scientists are watching closely as ocean temperatures rise."
+  },
+  {
+    "id": "derecho2012",
+    "name": "2012 North American Derecho",
+    "cat": "severeThunderstorm",
+    "year": 2012,
+    "date": "June 29, 2012",
+    "lat": 39,
+    "lon": -80,
+    "x": 278,
+    "y": 142,
+    "region": "Midwest to Mid-Atlantic, USA",
+    "stat1": {
+      "l": "Track length",
+      "v": "~1,300 km in ~12 hours"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "22"
+    },
+    "overview": "A fast-moving line of intense thunderstorms, called a derecho, raced from Iowa to the East Coast in under half a day, its straight-line winds toppling trees and knocking out power to millions during a heat wave.",
+    "fact": "Because it struck so quickly with little warning, some meteorologists nicknamed it an \"inland hurricane.\""
+  },
+  {
+    "id": "iranblizzard1972",
+    "name": "1972 Iran Blizzard",
+    "cat": "blizzard",
+    "year": 1972,
+    "date": "February 1972",
+    "lat": 34.5,
+    "lon": 55,
+    "x": 653,
+    "y": 154,
+    "region": "Central & Southern Iran",
+    "stat1": {
+      "l": "Duration",
+      "v": "~1 week"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~4,000"
+    },
+    "overview": "Considered the deadliest blizzard ever recorded, a week of relentless snowfall completely buried some rural villages, with snowdrifts reportedly reaching several meters deep.",
+    "fact": "Some villages were so thoroughly buried that rescuers found them only by spotting chimney smoke rising from the snowpack."
+  },
+  {
+    "id": "afghanblizzard2008",
+    "name": "2008 Afghanistan Cold Wave & Blizzard",
+    "cat": "blizzard",
+    "year": 2008,
+    "date": "January–February 2008",
+    "lat": 34.5,
+    "lon": 69.2,
+    "x": 692,
+    "y": 154,
+    "region": "Afghanistan",
+    "stat1": {
+      "l": "Duration",
+      "v": "Several weeks"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~1,300"
+    },
+    "overview": "One of the harshest winters in decades combined heavy snow with extreme cold across rural Afghanistan, killing people and livestock alike and cutting off many mountain communities from aid.",
+    "fact": "Widespread livestock deaths compounded the disaster by wiping out the livelihoods many rural families depended on."
+  },
+  {
+    "id": "stormofcentury1993",
+    "name": "Storm of the Century",
+    "cat": "blizzard",
+    "year": 1993,
+    "date": "March 12–15, 1993",
+    "lat": 35,
+    "lon": -82,
+    "x": 272,
+    "y": 153,
+    "region": "Eastern United States",
+    "stat1": {
+      "l": "Area affected",
+      "v": "Gulf Coast to Canada"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~270–300"
+    },
+    "overview": "An enormous superstorm brought blizzard conditions, tornadoes, and record low pressure to a huge swath of the eastern US simultaneously — snow even fell in parts of the Florida Panhandle.",
+    "fact": "At its peak, the storm affected roughly 40% of the US population in some way, from Cuba to Canada."
+  },
+  {
+    "id": "moradabad1888",
+    "name": "Moradabad Hailstorm",
+    "cat": "hailstorm",
+    "year": 1888,
+    "date": "April 30, 1888",
+    "lat": 28.83,
+    "lon": 78.78,
+    "x": 719,
+    "y": 170,
+    "region": "Moradabad, Uttar Pradesh, India",
+    "stat1": {
+      "l": "Hailstone size",
+      "v": "Reportedly up to goose-egg sized"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~246"
+    },
+    "overview": "The deadliest hailstorm ever recorded pelted the city with massive hailstones with little warning, killing people caught in the open and destroying crops and livestock across the region.",
+    "fact": "Some historical accounts describe hailstones large and dense enough to kill on impact — extraordinary even by hailstorm standards."
+  },
+  {
+    "id": "munichhail1984",
+    "name": "Munich Hailstorm",
+    "cat": "hailstorm",
+    "year": 1984,
+    "date": "July 12, 1984",
+    "lat": 48.14,
+    "lon": 11.58,
+    "x": 532,
+    "y": 116,
+    "region": "Munich, Germany",
+    "stat1": {
+      "l": "Duration",
+      "v": "~20 minutes"
+    },
+    "stat2": {
+      "l": "Damage",
+      "v": "One of Europe’s costliest hailstorms"
+    },
+    "overview": "A brief but intense supercell dropped tennis-ball-sized hail over Munich, damaging tens of thousands of cars, buildings, and even aircraft on the ground at the local airport.",
+    "fact": "It remains a benchmark event in European insurance industry catastrophe modeling decades later."
+  },
+  {
+    "id": "kentuckyice2009",
+    "name": "2009 Kentucky Ice Storm",
+    "cat": "icestorm",
+    "year": 2009,
+    "date": "January 26–28, 2009",
+    "lat": 37.5,
+    "lon": -85,
+    "x": 264,
+    "y": 146,
+    "region": "Kentucky & surrounding states, USA",
+    "stat1": {
+      "l": "Power outages",
+      "v": "~1.3 million customers"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~35"
+    },
+    "overview": "A thick coating of ice snapped power lines and trees across a wide swath of the US South, leaving some rural residents without electricity for weeks in freezing conditions.",
+    "fact": "It triggered one of the largest peacetime deployments of the Kentucky National Guard in the state’s history, for relief efforts."
+  },
+  {
+    "id": "atlas2013",
+    "name": "Winter Storm Atlas",
+    "cat": "icestorm",
+    "year": 2013,
+    "date": "October 3–5, 2013",
+    "lat": 44,
+    "lon": -103.2,
+    "x": 213,
+    "y": 128,
+    "region": "Western South Dakota, USA",
+    "stat1": {
+      "l": "Timing",
+      "v": "Unusually early in the season"
+    },
+    "stat2": {
+      "l": "Livestock lost",
+      "v": "Tens of thousands of cattle"
+    },
+    "overview": "An early-season blizzard coated the Black Hills region in heavy, wet snow and ice before cattle had grown their winter coats, leading to catastrophic livestock losses across the ranching industry.",
+    "fact": "Some ranchers lost their entire herds in a single storm, with recovery taking years for the regional cattle industry."
+  },
+  {
+    "id": "sydneydust2009",
+    "name": "Sydney \"Red Dawn\" Dust Storm",
+    "cat": "duststorm",
+    "year": 2009,
+    "date": "September 23, 2009",
+    "lat": -33.87,
+    "lon": 151.21,
+    "x": 920,
+    "y": 344,
+    "region": "Sydney, Australia",
+    "stat1": {
+      "l": "Visibility",
+      "v": "Reduced to a few hundred meters"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "0 reported"
+    },
+    "overview": "Drought-stricken red topsoil from inland Australia was swept up by strong winds and blanketed Sydney in a dense orange haze, turning morning skies an eerie red.",
+    "fact": "The dust plume was reportedly large enough to be visible from space."
+  },
+  {
+    "id": "phoenixhaboob2011",
+    "name": "Phoenix Haboob",
+    "cat": "duststorm",
+    "year": 2011,
+    "date": "July 5, 2011",
+    "lat": 33.45,
+    "lon": -112.07,
+    "x": 189,
+    "y": 157,
+    "region": "Phoenix, Arizona, USA",
+    "stat1": {
+      "l": "Height",
+      "v": "~1 mile (1.6 km)"
+    },
+    "stat2": {
+      "l": "Width",
+      "v": "~100 miles (160 km)"
+    },
+    "overview": "A collapsing thunderstorm pushed a towering wall of dust across the Phoenix metro area, dramatically reducing visibility to near zero within minutes as it rolled through.",
+    "fact": "The dramatic wall-cloud footage of this haboob went viral and is still used as a textbook example of the phenomenon."
+  },
+  {
+    "id": "sahel1968",
+    "name": "Sahel Drought",
+    "cat": "drought",
+    "year": 1968,
+    "date": "1968–1985",
+    "lat": 15,
+    "lon": 5,
+    "region": "Sahel region, West Africa",
+    "x": 514,
+    "y": 208,
+    "stat1": {
+      "l": "Duration",
+      "v": "~17 years"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "Hundreds of thousands to over 1 million"
+    },
+    "overview": "A prolonged, multi-decade drought across the semi-arid Sahel belt collapsed agriculture and pastoral herding, triggering repeated famines and mass displacement across several countries.",
+    "fact": "The disaster helped establish famine early-warning systems that international agencies still rely on today."
+  },
+  {
+    "id": "milldrought2001",
+    "name": "Millennium Drought",
+    "cat": "drought",
+    "year": 2001,
+    "date": "~2001–2009",
+    "lat": -34,
+    "lon": 143,
+    "region": "Murray–Darling Basin, Australia",
+    "x": 897,
+    "y": 344,
+    "stat1": {
+      "l": "Duration",
+      "v": "~8 years"
+    },
+    "stat2": {
+      "l": "Impact",
+      "v": "Severe damage to farming & river systems"
+    },
+    "overview": "One of the longest and most severe droughts in Australia’s recorded history crippled agriculture across the Murray-Darling Basin and forced lasting changes to national water policy.",
+    "fact": "The drought pushed Australia to establish one of the world’s most sophisticated water-trading markets to manage scarce supplies."
+  },
+  {
+    "id": "horndrought2022",
+    "name": "2022 Horn of Africa Drought",
+    "cat": "drought",
+    "year": 2022,
+    "date": "2020–2023",
+    "lat": 2.5,
+    "lon": 45,
+    "region": "Somalia & the Horn of Africa",
+    "x": 625,
+    "y": 247,
+    "stat1": {
+      "l": "Failed rainy seasons",
+      "v": "5 consecutive"
+    },
+    "stat2": {
+      "l": "People at crisis-level hunger",
+      "v": "20+ million"
+    },
+    "overview": "A repeat of the same 2011 crisis in the same region, five consecutive failed rainy seasons pushed millions toward famine conditions across Somalia, Ethiopia, and Kenya.",
+    "fact": "It was described by aid agencies as the region’s longest drought in at least four decades."
+  },
+  {
+    "id": "peshtigo1871",
+    "name": "Peshtigo Fire",
+    "cat": "wildfire",
+    "year": 1871,
+    "date": "October 8, 1871",
+    "lat": 45.05,
+    "lon": -87.75,
+    "x": 256,
+    "y": 125,
+    "region": "Peshtigo, Wisconsin, USA",
+    "stat1": {
+      "l": "Area burned",
+      "v": "~1.2 million acres"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "1,500–2,500"
+    },
+    "overview": "The deadliest wildfire in US history tore through logging communities on the same night as the Great Chicago Fire, which drew away most of the era’s news attention.",
+    "fact": "Because it happened the same night as Chicago’s fire, Peshtigo remains far less famous despite killing many more people."
+  },
+  {
+    "id": "campfire2018",
+    "name": "Camp Fire",
+    "cat": "wildfire",
+    "year": 2018,
+    "date": "November 2018",
+    "lat": 39.76,
+    "lon": -121.6,
+    "x": 162,
+    "y": 140,
+    "region": "Paradise, California, USA",
+    "stat1": {
+      "l": "Area burned",
+      "v": "~153,000 acres"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "85"
+    },
+    "overview": "Sparked by faulty electrical equipment, the fire spread with extraordinary speed, nearly destroying the entire town of Paradise within hours and becoming California’s deadliest wildfire on record.",
+    "fact": "It moved so fast that some residents had only minutes to evacuate before flames reached their neighborhoods."
+  },
+  {
+    "id": "mauifire2023",
+    "name": "Maui Wildfires",
+    "cat": "wildfire",
+    "year": 2023,
+    "date": "August 2023",
+    "lat": 20.87,
+    "lon": -156.68,
+    "x": 65,
+    "y": 192,
+    "region": "Lahaina, Maui, Hawaii, USA",
+    "stat1": {
+      "l": "Wind conditions",
+      "v": "Hurricane-force gusts"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~100"
+    },
+    "overview": "Fast-moving fires driven by dry conditions and hurricane-force winds tore through the historic town of Lahaina, destroying it almost completely within hours.",
+    "fact": "It became the deadliest US wildfire in over a century."
+  },
+  {
+    "id": "russiaheat2010",
+    "name": "2010 Russia Heatwave",
+    "cat": "heatwave",
+    "year": 2010,
+    "date": "July–August 2010",
+    "lat": 55.75,
+    "lon": 37.6,
+    "x": 604,
+    "y": 95,
+    "region": "Moscow, Russia",
+    "stat1": {
+      "l": "Duration",
+      "v": "~44 days"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "~55,000"
+    },
+    "overview": "Record-breaking heat combined with widespread peat-bog wildfires blanketed Moscow in thick smog for weeks, overwhelming hospitals and morgues.",
+    "fact": "Moscow briefly recorded some of the worst air-quality readings ever measured in a major world capital."
+  },
+  {
+    "id": "chicagoheat1995",
+    "name": "1995 Chicago Heat Wave",
+    "cat": "heatwave",
+    "year": 1995,
+    "date": "July 1995",
+    "lat": 41.88,
+    "lon": -87.63,
+    "x": 257,
+    "y": 134,
+    "region": "Chicago, Illinois, USA",
+    "stat1": {
+      "l": "Duration",
+      "v": "~5 days"
+    },
+    "stat2": {
+      "l": "Lives lost",
+      "v": "~739"
+    },
+    "overview": "A brief but brutal heat wave disproportionately killed elderly residents living alone without air conditioning, exposing gaps in the city’s emergency response for vulnerable populations.",
+    "fact": "The disaster remains a landmark case study in public-health research on social isolation and heat vulnerability."
+  },
+  {
+    "id": "heatdome2021",
+    "name": "Pacific Northwest Heat Dome",
+    "cat": "heatwave",
+    "year": 2021,
+    "date": "June 2021",
+    "lat": 50.23,
+    "lon": -121.58,
+    "x": 162,
+    "y": 111,
+    "region": "British Columbia, Canada & US Pacific Northwest",
+    "stat1": {
+      "l": "Record temp",
+      "v": "49.6°C (121.3°F) in Lytton, BC"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "1,400+"
+    },
+    "overview": "An unprecedented atmospheric \"heat dome\" shattered all-time temperature records across a region unaccustomed to extreme heat, with almost no air conditioning infrastructure in place to cope.",
+    "fact": "The village of Lytton set Canada’s all-time temperature record — then burned down in a wildfire the very next day."
+  },
+  {
+    "id": "euroheat2022",
+    "name": "2022 European Heatwave",
+    "cat": "heatwave",
+    "year": 2022,
+    "date": "Summer 2022",
+    "lat": 40.4,
+    "lon": -3.7,
+    "x": 490,
+    "y": 138,
+    "region": "Spain & Western Europe",
+    "stat1": {
+      "l": "Duration",
+      "v": "Multiple waves over summer"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "60,000+ (regional total)"
+    },
+    "overview": "Nearly two decades after the deadly 2003 heatwave, Europe faced a strikingly similar pattern of extreme summer heat, again straining hospitals and killing mostly elderly residents.",
+    "fact": "Researchers noted the eerie similarity to 2003, raising concerns that such summers may become the new normal rather than rare extremes."
+  },
+  {
+    "id": "chinawinter2008",
+    "name": "2008 China Winter Storms",
+    "cat": "coldwave",
+    "year": 2008,
+    "date": "January–February 2008",
+    "lat": 28.2,
+    "lon": 112.9,
+    "x": 814,
+    "y": 172,
+    "region": "Hunan & Southern China",
+    "stat1": {
+      "l": "Timing",
+      "v": "Lunar New Year travel season"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "100+"
+    },
+    "overview": "An unusually severe and prolonged cold snap coated southern China in ice and snow just as tens of millions were traveling home for the Lunar New Year, stranding many for days.",
+    "fact": "Power lines collapsed under the weight of ice across several provinces, cutting electricity to millions during the coldest stretch."
+  },
+  {
+    "id": "arcticoutbreak1899",
+    "name": "Great Arctic Outbreak",
+    "cat": "coldwave",
+    "year": 1899,
+    "date": "February 1899",
+    "lat": 30,
+    "lon": -90,
+    "x": 250,
+    "y": 167,
+    "region": "Southern United States",
+    "stat1": {
+      "l": "Notable record",
+      "v": "Ice reported on the Gulf of Mexico"
+    },
+    "stat2": {
+      "l": "Region affected",
+      "v": "Nearly the entire continental US"
+    },
+    "overview": "One of the most extreme cold outbreaks in US recorded history sent arctic air deep into the Deep South, with ice reportedly forming along parts of the Gulf Coast.",
+    "fact": "The cold was so extreme that ice floes were reported drifting in the Gulf of Mexico near New Orleans."
+  },
+  {
+    "id": "polarvortex2019",
+    "name": "2019 Polar Vortex",
+    "cat": "coldwave",
+    "year": 2019,
+    "date": "January 2019",
+    "lat": 41.9,
+    "lon": -87.6,
+    "x": 257,
+    "y": 134,
+    "region": "US Midwest",
+    "stat1": {
+      "l": "Wind chill",
+      "v": "Near -50°F (-45°C) in places"
+    },
+    "stat2": {
+      "l": "Est. lives lost",
+      "v": "20+"
+    },
+    "overview": "A plunge of Arctic air split off from the polar vortex and settled over the Midwest, bringing some of the coldest temperatures the region had seen in decades and shutting down entire cities.",
+    "fact": "Some areas were colder than parts of Antarctica during the peak of the outbreak."
+  }
+]
